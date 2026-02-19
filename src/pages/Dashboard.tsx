@@ -28,9 +28,16 @@ const DashboardPage = () => {
 
   useGSAP(() => {
     const tl = gsap.timeline();
-    tl.from('.dash-header-anim', { y: 20, opacity: 0, duration: 0.8, ease: 'expo.out' })
-      .from('.dash-form-anim', { y: 20, opacity: 0, duration: 0.8, ease: 'expo.out' }, '-=0.6')
-      .from('.dash-section-anim', { y: 20, opacity: 0, duration: 0.8, ease: 'expo.out', stagger: 0.2 }, '-=0.4');
+    tl.fromTo('.dash-header-anim', 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }
+      )
+      .fromTo('.dash-form-anim', 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }, '-=0.6')
+      .fromTo('.dash-section-anim', 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out', stagger: 0.2 }, '-=0.4');
   }, { scope: containerRef, dependencies: [] });
 
   const handleToggleToday = (id: string) => {

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -8,12 +8,12 @@ import { RoutePaths } from './constants/enums';
 // Layout
 import AppLayout from './components/layout/AppLayout';
 
-// Pages
-import DashboardPage from './pages/Dashboard';
-import HabitsPage from './pages/Habits';
-import CalendarViewPage from './pages/CalendarView';
-import AnalyticsPage from './pages/Analytics';
-import SettingsPage from './pages/Settings';
+// Lazy Loaded Pages
+const DashboardPage = lazy(() => import('./pages/Dashboard'));
+const HabitsPage = lazy(() => import('./pages/Habits'));
+const CalendarViewPage = lazy(() => import('./pages/CalendarView'));
+const AnalyticsPage = lazy(() => import('./pages/Analytics'));
+const SettingsPage = lazy(() => import('./pages/Settings'));
 
 const PageLoader = ({ children }: { children: React.ReactNode }) => {
   const container = useRef<HTMLDivElement>(null);
@@ -27,7 +27,13 @@ const PageLoader = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div ref={container} className="h-full">
-      {children}
+       <Suspense fallback={
+         <div className="flex h-full items-center justify-center">
+            <div className="h-8 w-8 rounded-full border-2 border-emerald-500/20 border-t-emerald-500 animate-spin" />
+         </div>
+       }>
+        {children}
+      </Suspense>
     </div>
   );
 };

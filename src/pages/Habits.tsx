@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Search, Sparkles } from 'lucide-react';
 import HabitCard from '../components/HabitCard';
 import { useHabits } from '../hooks/useHabits';
 import { HabitFrequency } from '../constants/enums';
@@ -16,19 +17,26 @@ const HabitsPage = () => {
 
   useGSAP(() => {
     const tl = gsap.timeline();
-    tl.from('.habits-header', { y: 20, opacity: 0, duration: 0.8, ease: 'expo.out' })
-      .from('.habits-filters', { y: 20, opacity: 0, duration: 0.8, ease: 'expo.out' }, '-=0.6')
-      .from('.habit-item-anim', { 
-        y: 20, 
-        opacity: 0, 
-        duration: 0.6, 
-        ease: 'expo.out', 
-        stagger: {
-          amount: 0.4,
-          from: "start"
-        }
-      }, '-=0.4');
-  }, { scope: containerRef, dependencies: [filter] });
+    tl.fromTo('.habits-header', 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }
+      )
+      .fromTo('.habits-filters', 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }, '-=0.6')
+      .fromTo('.habit-item-anim', 
+        { y: 20, opacity: 0 }, 
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.6, 
+          ease: 'expo.out', 
+          stagger: {
+            amount: 0.4,
+            from: "start"
+          }
+        }, '-=0.4');
+  }, { scope: containerRef, dependencies: [] });
 
   return (
     <div ref={containerRef} className="flex h-full flex-col gap-8">
@@ -68,18 +76,32 @@ const HabitsPage = () => {
 
       <div className="grid flex-1 gap-6 content-start pb-8">
         {filtered.length === 0 ? (
-          <div className="habit-item-anim glass-card rounded-[2rem] p-12 text-center border-dashed flex flex-col items-center gap-4">
-             <div className="h-16 w-16 rounded-full bg-slate-900 flex items-center justify-center text-slate-600">
-                <span className="i-lucide-search h-8 w-8" />
+          <div className="habit-item-anim glass-card rounded-4xl p-12 text-center border-dashed border-slate-800 flex flex-col items-center gap-6">
+             <div className="h-20 w-20 rounded-3xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
+                {habits.length === 0 ? (
+                  <Sparkles className="h-10 w-10 text-emerald-400 animate-pulse" />
+                ) : (
+                  <Search className="h-10 w-10 text-sky-400" />
+                )}
              </div>
-             <div className="max-w-xs">
-                <p className="text-sm font-bold text-slate-300">
-                  No habits match this filter.
-                </p>
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Try adjusting your filter or head back to the Today page to track your first win.
+             <div className="max-w-xs space-y-2">
+                <h3 className="text-lg font-bold text-white">
+                  {habits.length === 0 ? 'Start Your Journey' : 'No Habits Found'}
+                </h3>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  {habits.length === 0 
+                    ? 'Your habit bank is empty. Head back to the Today page to define your first daily win.' 
+                    : `No results match the "${filter}" filter. Try adjusting your view or adding a new one.`}
                 </p>
              </div>
+             {habits.length === 0 && (
+               <a 
+                 href="/"
+                 className="px-6 py-3 rounded-2xl bg-emerald-500 text-slate-950 text-xs font-black uppercase tracking-widest shadow-lg shadow-emerald-500/20 hover:brightness-110 active:scale-95 transition-all"
+               >
+                 Go to Today
+               </a>
+             )}
           </div>
         ) : (
           filtered.map((habit) => (

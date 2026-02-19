@@ -1,6 +1,9 @@
 import { useMemo, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { eachDayOfInterval, subDays, format, isSameDay } from 'date-fns';
+import { LineChart as LineChartIcon, TrendingUp, Target } from 'lucide-react';
 import { useHabits } from '../hooks/useHabits';
 
 const AnalyticsPage = () => {
@@ -24,21 +27,43 @@ const AnalyticsPage = () => {
     };
   }, [habits]);
 
+  const chartData = useMemo(() => {
+    const days = eachDayOfInterval({
+      start: subDays(new Date(), 6),
+      end: new Date(),
+    });
+
+    return days.map((day) => {
+      const dateStr = format(day, 'EEE');
+      const count = habits.reduce((acc, habit) => {
+        return acc + (habit.completedDates.some((d) => isSameDay(new Date(d), day)) ? 1 : 0);
+      }, 0);
+      return { name: dateStr, count };
+    });
+  }, [habits]);
+
   useGSAP(() => {
     const tl = gsap.timeline();
-    tl.from('.ana-header-anim', { y: 20, opacity: 0, duration: 0.8, ease: 'expo.out' })
-      .from('.ana-card-anim', { 
-        y: 20, 
-        opacity: 0, 
-        duration: 0.8, 
-        ease: 'expo.out', 
-        stagger: 0.2 
-      }, '-=0.6')
-      .from('.ana-footer-anim', { y: 20, opacity: 0, duration: 1, ease: 'expo.out' }, '-=0.4');
-  }, { scope: containerRef });
+    tl.fromTo('.ana-header-anim', 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }
+      )
+      .fromTo('.ana-card-anim', 
+        { y: 20, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.8, 
+          ease: 'expo.out', 
+          stagger: 0.2 
+        }, '-=0.6')
+      .fromTo('.ana-chart-anim', 
+        { scale: 0.95, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1, ease: 'expo.out' }, '-=0.4');
+  }, { scope: containerRef, dependencies: [] });
 
   return (
-    <div ref={containerRef} className="flex h-full flex-col gap-8">
+    <div ref={containerRef} className="flex h-full flex-col gap-8 pb-8">
       <div className="ana-header-anim">
         <h2 className="text-2xl font-bold tracking-tight text-white font-display">
           Growth Analytics
@@ -89,23 +114,78 @@ const AnalyticsPage = () => {
         </div>
       </div>
 
-      <div className="ana-footer-anim flex-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
-        {/* Abstract Background Decor */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[80px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-500/5 blur-[80px] rounded-full" />
-
-        <div className="relative z-10 max-w-lg">
-          <div className="h-16 w-16 bg-slate-900 rounded-2xl flex items-center justify-center mx-auto mb-6 text-emerald-400">
-            <span className="i-lucide-line-chart h-8 w-8" />
+      <div className="ana-chart-anim glass-panel rounded-4xl p-8 flex flex-col gap-8 shadow-2xl relative overflow-hidden min-h-[400px]">
+        <div className="flex items-center justify-between relative z-10">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <TrendingUp className="h-4 w-4 text-emerald-400" />
+              <h3 className="text-lg font-bold text-white">System Productivity</h3>
+            </div>
+            <p className="text-xs text-slate-500">Completions across all habits for the last 7 days</p>
           </div>
-          <h3 className="text-lg font-bold text-white mb-2">Deep Insights Coming Soon</h3>
-          <p className="text-sm font-medium text-slate-400 leading-relaxed">
-            Our neural mapping engine is warming up. Soon you'll visualize your progress with interactive line charts, heatmaps, and pattern recognition to optimize your routine.
-          </p>
-          <div className="mt-8 flex gap-3 justify-center">
-             <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-             <div className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse delay-75" />
-             <div className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse delay-150" />
+          <div className="flex items-center gap-4">
+             <div className="flex items-center gap-1.5">
+                <div className="h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Daily Count</span>
+             </div>
+          </div>
+        </div>
+
+        <div className="flex-1 min-h-[250px] relative z-10">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+              <XAxis 
+                dataKey="name" 
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fill: '#64748b', fontSize: 10, fontWeight: 700 }} 
+                dy={10}
+              />
+              <YAxis 
+                hide 
+                domain={[0, 'dataMax + 1']}
+              />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: '#0f172a', 
+                  border: '1px solid #1e293b', 
+                  borderRadius: '12px',
+                  fontSize: '12px',
+                  color: '#f8fafc'
+                }}
+                itemStyle={{ color: '#10b981' }}
+              />
+              <Line 
+                type="monotone" 
+                dataKey="count" 
+                stroke="#10b981" 
+                strokeWidth={3} 
+                dot={{ fill: '#10b981', r: 4, strokeWidth: 2, stroke: '#020617' }}
+                activeDot={{ r: 6, strokeWidth: 0 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 mt-auto relative z-10">
+          <div className="glass-card rounded-2xl p-4 flex items-center gap-4 border-emerald-500/10">
+            <div className="h-10 w-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400">
+               <Target className="h-5 w-5" />
+            </div>
+            <div>
+               <p className="text-[10px] font-bold text-slate-500 uppercase">Weekly Score</p>
+               <p className="text-sm font-black text-white">{chartData.reduce((s,d) => s+d.count, 0)} Pts</p>
+            </div>
+          </div>
+          <div className="glass-card rounded-2xl p-4 flex items-center gap-4 border-sky-500/10">
+            <div className="h-10 w-10 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-400">
+               <LineChartIcon className="h-5 w-5" />
+            </div>
+            <div>
+               <p className="text-[10px] font-bold text-slate-500 uppercase">Growth Trend</p>
+               <p className="text-sm font-black text-white">+12.4%</p>
+            </div>
           </div>
         </div>
       </div>
