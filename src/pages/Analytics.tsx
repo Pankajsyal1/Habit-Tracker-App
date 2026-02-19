@@ -49,7 +49,7 @@ const AnalyticsPage = () => {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-3">
-        <div className="ana-card-anim glass-card rounded-[2rem] p-6 group">
+        <div className="ana-card-anim glass-card rounded-4xl p-6 group">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4 transition-colors group-hover:text-emerald-400">
             Active Habits
           </p>
@@ -62,7 +62,7 @@ const AnalyticsPage = () => {
           </div>
         </div>
 
-        <div className="ana-card-anim glass-card rounded-[2rem] p-6 group">
+        <div className="ana-card-anim glass-card rounded-4xl p-6 group">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4 transition-colors group-hover:text-sky-400">
             Total Wins
           </p>
@@ -75,7 +75,7 @@ const AnalyticsPage = () => {
           </div>
         </div>
 
-        <div className="ana-card-anim glass-card rounded-[2rem] p-6 group">
+        <div className="ana-card-anim glass-card rounded-4xl p-6 group">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-4 transition-colors group-hover:text-violet-400">
             Avg Streak
           </p>
