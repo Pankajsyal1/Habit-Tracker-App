@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+@layer base {
+  :root {
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(51, 65, 85, 0.4);
+    --primary-glow: rgba(52, 211, 153, 0.2);
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-50 antialiased overflow-x-hidden;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-slate-950/70 backdrop-blur-xl border border-slate-800/80 shadow-[0_20px_60px_rgba(15,23,42,0.9)];
+  }
+
+  .glass-card {
+    @apply bg-slate-900/40 backdrop-blur-md border border-slate-700/50 hover:border-slate-500/50 transition-all duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-emerald-400 to-sky-500;
+  }
+
+  .glow-primary {
+    @apply shadow-[0_0_20px_rgba(52,211,153,0.3)];
+  }
+}
+
+@layer utilities {
+  .animate-in-view {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom selection */
+::selection {
+  @apply bg-emerald-500/30 text-emerald-200;
+}
