@@ -39,7 +39,7 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-md bg-slate-950/40">
       <div 
-        className="glass-panel w-full max-w-md rounded-4xl p-8 border border-slate-700/50 shadow-2xl relative"
+        className="glass-panel w-full max-w-md rounded-xl p-8 border border-slate-700/50 shadow-xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
@@ -59,7 +59,7 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full h-12 rounded-2xl border border-slate-700/50 bg-slate-950/50 px-4 text-sm text-slate-100 outline-none transition-all focus:border-emerald-500/50 focus:bg-slate-900/80"
+              className="w-full h-12 rounded-xl border border-slate-700/50 bg-slate-950/50 px-4 text-sm text-slate-100 outline-none transition-all focus:border-emerald-500/50 focus:bg-slate-900/80"
               placeholder="Habit name..."
             />
           </div>
@@ -68,7 +68,7 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
             <label className="px-1 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">
               Frequency
             </label>
-            <div className="flex h-12 rounded-2xl bg-slate-950/50 border border-slate-700/50 p-1">
+            <div className="flex h-12 rounded-xl bg-slate-950/50 border border-slate-700/50 p-1">
               {([HabitFrequency.DAILY, HabitFrequency.WEEKLY] as HabitFrequency[]).map((f) => (
                 <button
                   key={f}
@@ -90,13 +90,13 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 h-12 rounded-2xl border border-slate-700/50 bg-slate-900/50 text-sm font-bold text-slate-300 hover:bg-slate-800 transition-all active:scale-95"
+              className="flex-1 h-12 rounded-xl border border-slate-700/50 bg-slate-900/50 text-sm font-bold text-slate-300 hover:bg-slate-800 transition-all active:scale-95"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 h-12 rounded-2xl bg-linear-to-br from-emerald-400 to-sky-500 text-slate-950 text-sm font-bold shadow-lg hover:brightness-110 transition-all active:scale-95"
+              className="flex-1 h-12 rounded-xl bg-linear-to-br from-emerald-400 to-sky-500 text-slate-950 text-sm font-bold shadow-lg hover:brightness-110 transition-all active:scale-95"
             >
               Save Changes
             </button>

@@ -17,7 +17,7 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
 
   return (
     <div className={`
-      group relative overflow-hidden rounded-4xl border transition-all duration-500
+      group relative overflow-hidden rounded-xl border transition-all duration-500
       ${doneToday 
         ? 'border-emerald-500/40 bg-emerald-500/5 shadow-[0_0_40px_rgba(52,211,153,0.05)]' 
         : 'border-slate-800/80 bg-slate-900/40 hover:bg-slate-900/60 hover:border-slate-600/50'}
@@ -30,7 +30,7 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className={`
-                flex h-10 w-10 items-center justify-center rounded-2xl text-xs font-black shadow-lg transition-transform group-hover:scale-110
+                flex h-10 w-10 items-center justify-center rounded-xl text-xs font-black shadow-lg transition-transform group-hover:scale-110
                 ${habit.frequency === HabitFrequency.DAILY 
                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
                   : 'bg-sky-500/20 text-sky-400 border border-sky-500/30'}
@@ -38,7 +38,7 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
                 {habit.frequency === HabitFrequency.DAILY ? 'D' : 'W'}
               </div>
               <div>
-                <h3 className="text-base font-bold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
+                <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
                   {habit.name}
                 </h3>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-0.5">
@@ -57,15 +57,15 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
               onToggleToday();
             }}
             className={`
-              relative z-10 flex h-14 w-full sm:w-14 items-center justify-center rounded-2xl transition-all duration-300 active:scale-90
+              relative z-10 flex h-14 w-full sm:w-14 items-center justify-center rounded-xl transition-all duration-300 active:scale-90 gap-3 sm:gap-0
               ${doneToday
                 ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/40 glow-primary'
                 : 'bg-slate-950/50 border border-slate-700/50 text-slate-400 hover:border-emerald-500/60 hover:text-emerald-400'}
             `}
           >
-            <CheckCircle2 className={`${doneToday ? 'h-7 w-7' : 'h-6 w-6'} transition-all`} />
-            <span className="sm:hidden ml-3 font-bold uppercase tracking-widest text-xs">
-              {doneToday ? 'Completed' : 'Mark Done'}
+            <CheckCircle2 className={`${doneToday ? 'h-7 w-7' : 'h-6 w-6'} transition-all shrink-0`} />
+            <span className="sm:hidden font-black uppercase tracking-widest text-[11px]">
+              {doneToday ? 'Completed' : 'Mark Daily Win'}
             </span>
           </button>
         </div>
@@ -83,7 +83,7 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
                 aria-label="Edit habit"
               >
                 <Settings className="h-4 w-4" />
-                <span>Settings</span>
+                <span className='hidden sm:inline-block'>Settings</span>
               </button>
               <button 
                 type="button"
@@ -91,11 +91,11 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
                   e.stopPropagation();
                   onDelete();
                 }}
-                className="relative z-20 flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition-all cursor-pointer"
+                className="relative z-20 flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest text-red-500 hover:text-rose-400 hover:bg-rose-500/10 transition-all cursor-pointer"
                 aria-label="Delete habit"
               >
                 <Trash2 className="h-4 w-4" />
-                <span>Archive</span>
+                <span className='hidden sm:inline-block'>Archive</span>
               </button>
            </div>
            

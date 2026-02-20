@@ -20,7 +20,7 @@ const DashboardHeader = ({ stats, dailyHabitsCount }: DashboardHeaderProps) => {
             Level Up Your Day
           </span>
         </div>
-        <h2 className="text-3xl font-black tracking-tight text-white font-display flex items-center gap-3">
+        <h2 className="text-xl font-black text-white font-display flex items-center gap-3">
           Focus Mode <span className="text-gradient">Active</span>
         </h2>
         <div className="flex items-center gap-4 pt-1">
@@ -43,7 +43,7 @@ const DashboardHeader = ({ stats, dailyHabitsCount }: DashboardHeaderProps) => {
       </div>
       
       <div className="flex flex-col gap-3 lg:items-end w-full lg:w-auto">
-        <div className="glass-card rounded-2xl p-4 lg:p-5 flex items-center gap-5 min-w-[300px] border-emerald-500/10">
+        <div className="glass-card rounded-xl p-4 lg:p-5 flex items-center gap-5 w-full lg:min-w-[300px] border-emerald-500/10">
           <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
             <svg className="absolute inset-0 h-full w-full -rotate-90">
               <circle

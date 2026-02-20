@@ -4,8 +4,8 @@ import NavItem from './NavItem';
 
 const AppSidebar = () => {
   return (
-    <aside className="sidebar-anim lg:w-64">
-      <nav className="sticky top-6 flex flex-col gap-8">
+    <aside className="sidebar-anim lg:w-64 hidden lg:block">
+      <nav className="sticky top-32 flex flex-col gap-8 z-40">
         <div className="space-y-3">
           <p className="px-4 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
             Daily Rhythm
@@ -28,7 +28,7 @@ const AppSidebar = () => {
         </div>
 
         {/* Progress Card */}
-        <div className="mt-4 glass-card rounded-3xl p-5 relative overflow-hidden group">
+        <div className="mt-4 glass-card rounded-xl p-5 relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-3 opacity-20 transition-opacity group-hover:opacity-40">
             <Activity className="h-5 w-5" />
           </div>

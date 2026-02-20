@@ -27,10 +27,10 @@ const Calendar = ({ habits, month }: CalendarProps) => {
     );
 
   return (
-    <div className="glass-panel rounded-4xl p-6 sm:p-8">
+    <div className="glass-panel rounded-xl p-4 sm:p-8">
       <div className="mb-8 flex items-center justify-between">
         <div>
-           <p className="text-xl font-bold tracking-tight text-white font-display">
+           <p className="text-xl font-bold text-white font-display">
             {format(month, 'MMMM yyyy')}
           </p>
           <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">
@@ -43,7 +43,7 @@ const Calendar = ({ habits, month }: CalendarProps) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-7 gap-3 text-center mb-4">
+      <div className="grid grid-cols-7 gap-1.5 sm:gap-3 text-center mb-4">
         {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d) => (
           <span key={d} className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-600">
             {d}
@@ -51,7 +51,7 @@ const Calendar = ({ habits, month }: CalendarProps) => {
         ))}
       </div>
 
-      <div className="grid grid-cols-7 gap-3">
+      <div className="grid grid-cols-7 gap-1.5 sm:gap-3">
         {days.slice(0, 35).map((day) => {
           const inCurrentMonth = isSameMonth(day, month);
           const completed = isCompletedForAnyHabit(day);
@@ -62,7 +62,7 @@ const Calendar = ({ habits, month }: CalendarProps) => {
               key={day.toISOString()}
               type="button"
               className={`
-                relative flex aspect-square w-full items-center justify-center rounded-2xl text-xs font-bold transition-all duration-300
+                relative flex aspect-square w-full items-center justify-center rounded-xl text-xs font-bold transition-all duration-300
                 ${inCurrentMonth
                   ? 'text-slate-200'
                   : 'text-slate-700 opacity-40'}

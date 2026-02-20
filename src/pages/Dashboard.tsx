@@ -57,7 +57,7 @@ const DashboardPage = () => {
       <QuickAddHabit onAdd={addHabit} />
 
       {/* 3. Habits Grid */}
-      <div className="grid flex-1 gap-8 md:grid-cols-2">
+      <div className="grid flex-1 gap-6 lg:gap-8 lg:grid-cols-2">
         <HabitSection
           title="Daily Rhythm"
           habits={dailyHabits}

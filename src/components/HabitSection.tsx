@@ -43,7 +43,7 @@ const HabitSection = ({
       
       <div className="grid gap-4">
         {habits.length === 0 ? (
-          <div className="glass-card rounded-3xl p-8 text-center border-dashed">
+          <div className="glass-card rounded-xl p-8 text-center border-dashed">
             <p className="text-sm font-medium text-slate-500">
               {emptyMessage}
             </p>

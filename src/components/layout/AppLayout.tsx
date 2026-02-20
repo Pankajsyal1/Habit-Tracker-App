@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import AppHeader from './AppHeader';
 import AppSidebar from './AppSidebar';
+import MobileNav from './MobileNav';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -22,30 +23,34 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
+    <div className="h-dvh bg-slate-950 text-slate-50 font-sans selection:bg-emerald-500/30 selection:text-emerald-200 overflow-hidden relative">
       {/* Background Decor */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-emerald-500/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-sky-500/10 blur-[120px] rounded-full" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-6 pt-6 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col px-4 pb-24 pt-4 sm:px-6 lg:px-8 lg:pb-6 lg:pt-6">
         <AppHeader />
 
-        <div className="flex flex-1 flex-col gap-8 lg:flex-row">
+        <div className="flex flex-1 flex-col gap-6 lg:flex-row lg:gap-8 min-h-0">
           <AppSidebar />
 
           {/* Main Area */}
-          <main ref={mainRef} className="main-anim flex-1 min-h-[600px]">
-            <div className="h-full glass-panel rounded-4xl p-6 lg:p-8 relative overflow-hidden">
-               {/* Key ensures GSAP re-runs on route change if wraped with individual page loaders */}
-               <div key={location.pathname} className="h-full">
-                {children}
+          <main ref={mainRef} className="main-anim flex-1 flex flex-col min-h-0">
+            <div className="flex-1 glass-panel rounded-xl relative overflow-hidden flex flex-col">
+               <div id="main-scroll-container" className="flex-1 overflow-y-auto p-5 lg:p-8 custom-scrollbar">
+                 {/* Key ensures GSAP re-runs on route change */}
+                <div key={location.pathname} className="min-h-full flex flex-col">
+                  {children}
+                </div>
                </div>
             </div>
           </main>
         </div>
       </div>
+
+      <MobileNav />
     </div>
   );
 };

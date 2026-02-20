@@ -48,7 +48,7 @@ const SettingsPage = () => {
   return (
     <div ref={containerRef} className="flex h-full flex-col gap-8">
       <div className="set-header-anim">
-        <h2 className="text-2xl font-bold tracking-tight text-white font-display">
+        <h2 className="text-xl font-bold text-white font-display">
           System Preferences
         </h2>
         <p className="text-sm font-medium text-slate-400 mt-1">
@@ -56,10 +56,10 @@ const SettingsPage = () => {
         </p>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-3">
-        <section className="set-section-anim glass-card rounded-4xl p-8 flex flex-col gap-6">
-          <div className="flex items-center gap-4">
-             <div className="h-12 w-12 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400">
+      <div className="grid gap-6 lg:grid-cols-3">
+        <section className="set-section-anim glass-card rounded-xl p-5 sm:p-8 flex flex-col gap-6">
+          <div className="flex items-start gap-4">
+             <div className="h-12 w-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-400">
                 <Database className="h-6 w-6" />
              </div>
              <div>
@@ -75,16 +75,16 @@ const SettingsPage = () => {
           <button
             type="button"
             onClick={handleExport}
-            className="w-full flex items-center justify-center gap-3 rounded-2xl bg-slate-900 border border-slate-700/50 h-14 text-xs font-bold uppercase tracking-widest text-white hover:bg-slate-800 hover:border-sky-500/50 transition-all active:scale-95 group cursor-pointer"
+            className="w-full flex items-center justify-center gap-3 rounded-xl bg-slate-900 border border-slate-700/50 h-14 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white hover:bg-slate-800 hover:border-sky-500/50 transition-all active:scale-95 group cursor-pointer"
           >
             <Download className="h-5 w-5 text-sky-400 group-hover:animate-bounce" />
             <span>Export Cloud Snapshot</span>
           </button>
         </section>
 
-        <section className="set-section-anim glass-card rounded-4xl p-8 flex flex-col gap-6 bg-linear-to-br from-emerald-500/5 to-transparent border-emerald-500/10">
+        <section className="set-section-anim glass-card rounded-xl p-5 sm:p-8 flex flex-col gap-6 bg-linear-to-br from-emerald-500/5 to-transparent border-emerald-500/10">
           <div className="flex items-center gap-4">
-             <div className="h-12 w-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400">
+             <div className="h-12 w-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400">
                 <LineChart className="h-6 w-6" />
              </div>
              <div>
@@ -100,16 +100,16 @@ const SettingsPage = () => {
           <button
             type="button"
             onClick={() => navigate(RoutePaths.ANALYTICS)}
-            className="w-full flex items-center justify-center gap-3 rounded-2xl bg-slate-900 border border-slate-700/50 h-14 text-xs font-bold uppercase tracking-widest text-white hover:bg-slate-800 hover:border-emerald-500/50 transition-all active:scale-95 group cursor-pointer"
+            className="w-full flex items-center justify-center gap-3 rounded-xl bg-slate-900 border border-slate-700/50 h-14 text-xs font-bold uppercase tracking-widest text-white hover:bg-slate-800 hover:border-emerald-500/50 transition-all active:scale-95 group cursor-pointer"
           >
             <LineChart className="h-5 w-5 text-emerald-400" />
             <span>Audit Performance</span>
           </button>
         </section>
 
-        <section className="set-section-anim glass-card rounded-4xl p-8 bg-linear-to-br from-rose-500/5 to-transparent border-rose-500/20 flex flex-col gap-6">
+        <section className="set-section-anim glass-card rounded-xl p-5 sm:p-8 bg-linear-to-br from-rose-500/5 to-transparent border-rose-500/20 flex flex-col gap-6">
           <div className="flex items-center gap-4">
-             <div className="h-12 w-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-400">
+             <div className="h-12 w-12 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-400">
                 <AlertTriangle className="h-6 w-6" />
              </div>
              <div>
@@ -125,7 +125,7 @@ const SettingsPage = () => {
           <button
             type="button"
             onClick={handleReset}
-            className="w-full flex items-center justify-center gap-3 rounded-2xl bg-rose-950/30 border border-rose-500/30 h-14 text-xs font-bold uppercase tracking-widest text-rose-400 hover:bg-rose-600 hover:text-white hover:border-rose-600 transition-all active:scale-95 group cursor-pointer"
+            className="w-full flex items-center justify-center gap-3 rounded-xl bg-rose-950/30 border border-rose-500/30 h-14 text-xs font-bold uppercase tracking-widest text-rose-400 hover:bg-rose-600 hover:text-white hover:border-rose-600 transition-all active:scale-95 group cursor-pointer"
           >
             <Trash2 className="h-5 w-5 group-hover:rotate-12 transition-transform" />
             <span>Factory Reset App</span>
@@ -133,7 +133,7 @@ const SettingsPage = () => {
         </section>
       </div>
 
-      <div className="set-section-anim mt-auto glass-card rounded-4xl p-6 text-center">
+      <div className="set-section-anim mt-auto glass-card rounded-xl p-6 text-center">
          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
             Habit Flow v1.0 • Running on Local Storage Persistence
          </p>

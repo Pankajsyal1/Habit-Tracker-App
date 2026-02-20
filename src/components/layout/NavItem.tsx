@@ -13,7 +13,7 @@ const NavItem = ({ to, children, icon: Icon, end = false }: NavItemProps) => {
       to={to}
       end={end}
       className={({ isActive }) => `
-        flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 group
+        flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group
         ${isActive 
           ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 glow-primary active-nav' 
           : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 hover:border-slate-700/50 border border-transparent'}
