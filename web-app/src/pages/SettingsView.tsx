@@ -27,8 +27,8 @@ const SettingsView = () => {
         }, '-=0.6');
   }, { scope: containerRef, dependencies: [] });
 
-  const handleExport = () => {
-    const habits = dbService.getHabits();
+  const handleExport = async () => {
+    const habits = await dbService.getHabits();
     if (habits.length === 0) return;
     
     const data = JSON.stringify({ habits }, null, 2);

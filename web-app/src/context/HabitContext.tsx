@@ -7,24 +7,13 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import type { Habit } from '../types';
-import { habitReducer } from './habitReducer';
+
+import { habitReducer, type HabitAction, type HabitState } from './habitReducer';
 import { HabitActionType } from '../constants/enums';
 import { dbService } from '../db/db';
 
-interface HabitState {
-  habits: Habit[];
-}
-
-type HabitAction =
-  | { type: typeof HabitActionType.ADD_HABIT; payload: Habit }
-  | { type: typeof HabitActionType.UPDATE_HABIT; payload: Habit }
-  | { type: typeof HabitActionType.DELETE_HABIT; payload: { id: string } }
-  | { type: typeof HabitActionType.TOGGLE_COMPLETE; payload: { id: string; date: string } }
-  | { type: typeof HabitActionType.HYDRATE; payload: HabitState };
-
 interface HabitContextValue extends HabitState {
-  dispatch: (action: HabitAction) => void;
+  dispatch: (action: HabitAction) => void | Promise<void>;
   isLoading: boolean;
 }
 
@@ -43,7 +32,7 @@ export const HabitProvider = ({ children }: { children: ReactNode }) => {
     const init = async () => {
       try {
         await dbService.init();
-        const habits = dbService.getHabits();
+        const habits = await dbService.getHabits();
         dispatchBase({ 
           type: HabitActionType.HYDRATE, 
           payload: { habits } 
@@ -58,24 +47,28 @@ export const HabitProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   // Wrap dispatch to handle persistence
-  const dispatch: HabitContextValue['dispatch'] = (action) => {
+  const dispatch: HabitContextValue['dispatch'] = async (action) => {
     // 1. Update local state for immediate UI feedback
     dispatchBase(action);
 
     // 2. Persist to SQLite
-    switch (action.type) {
-      case HabitActionType.ADD_HABIT:
-        dbService.addHabit(action.payload);
-        break;
-      case HabitActionType.UPDATE_HABIT:
-        dbService.updateHabit(action.payload);
-        break;
-      case HabitActionType.DELETE_HABIT:
-        dbService.deleteHabit(action.payload.id);
-        break;
-      case HabitActionType.TOGGLE_COMPLETE:
-        dbService.toggleComplete(action.payload.id, action.payload.date);
-        break;
+    try {
+      switch (action.type) {
+        case HabitActionType.ADD_HABIT:
+          await dbService.addHabit(action.payload);
+          break;
+        case HabitActionType.UPDATE_HABIT:
+          await dbService.updateHabit(action.payload);
+          break;
+        case HabitActionType.DELETE_HABIT:
+          await dbService.deleteHabit(action.payload.id);
+          break;
+        case HabitActionType.TOGGLE_COMPLETE:
+          await dbService.toggleComplete(action.payload.id, action.payload.date);
+          break;
+      }
+    } catch (error) {
+      console.error('Persistence failed for action:', action.type, error);
     }
   };
 
