@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import AppHeader from './AppHeader';
 import AppSidebar from './AppSidebar';
 import MobileNav from './MobileNav';
+import { useHabitContext } from '../../context/HabitContext';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ interface AppLayoutProps {
 const AppLayout = ({ children }: AppLayoutProps) => {
   const location = useLocation();
   const mainRef = useRef<HTMLElement>(null);
+  const { isLoading } = useHabitContext();
 
   useGSAP(() => {
     // Entrance animations for layout components
@@ -51,6 +53,16 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       </div>
 
       <MobileNav />
+
+      {/* Persistence Loading Overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-4">
+            <div className="h-12 w-12 rounded-full border-4 border-emerald-500/20 border-t-emerald-500 animate-spin" />
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-emerald-500">Initializing Database</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

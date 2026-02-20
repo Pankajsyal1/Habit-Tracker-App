@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Database, AlertTriangle, LineChart, Download, Trash2 } from 'lucide-react';
-import { STORAGE_KEYS } from '../constants/design';
 import { RoutePaths } from '../constants/enums';
+import { dbService } from '../db/db';
 
 const SettingsView = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,21 +28,22 @@ const SettingsView = () => {
   }, { scope: containerRef, dependencies: [] });
 
   const handleExport = () => {
-    const data = localStorage.getItem(STORAGE_KEYS.HABITS_V1);
-    if (!data) return;
+    const habits = dbService.getHabits();
+    if (habits.length === 0) return;
+    
+    const data = JSON.stringify({ habits }, null, 2);
     const blob = new Blob([data], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'habit-flow-backup.json';
+    a.download = `habit-flow-backup-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
 
-  const handleReset = () => {
+  const handleReset = async () => {
     if (!window.confirm('This will permanently delete all your tracking data. Continue?')) return;
-    localStorage.removeItem(STORAGE_KEYS.HABITS_V1);
-    window.location.reload();
+    await dbService.clearDatabase();
   };
 
   return (
@@ -56,7 +57,7 @@ const SettingsView = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-2">
         <section className="set-section-anim glass-card rounded-xl p-5 sm:p-8 flex flex-col gap-6">
           <div className="flex items-start gap-4">
              <div className="h-12 w-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-400">
@@ -119,7 +120,7 @@ const SettingsView = () => {
           </div>
 
           <p className="text-xs leading-relaxed text-slate-300">
-            Resetting your workspace will purge all habit definitions and streak history from this browser's local storage. This action is irreversible.
+            Resetting your workspace will purge all habit definitions and streak history from the SQLite database. This action is irreversible.
           </p>
 
           <button
@@ -135,7 +136,7 @@ const SettingsView = () => {
 
       <div className="set-section-anim mt-auto glass-card rounded-xl p-6 text-center">
          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
-            Habit Flow v1.0 • Running on Local Storage Persistence
+            Habit Flow v1.0 • Running on SQLite Persistence (WASM)
          </p>
       </div>
     </div>

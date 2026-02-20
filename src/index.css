@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Roboto', system-ui, -apple-system, sans-serif;
-  --font-display: 'DM Sans', sans-serif;
+  --font-sans: 'Geist Mono', monospace, system-ui, -apple-system, sans-serif;
+  --font-display: 'Averia Serif Libre', sans-serif;
 }
 
 @layer base {
@@ -28,7 +28,7 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-emerald-400 to-sky-500;
+    @apply bg-clip-text text-transparent bg-linear-to-br from-emerald-400 to-sky-500;
   }
 
   .glow-primary {
