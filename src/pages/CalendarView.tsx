@@ -5,7 +5,7 @@ import { Check, Minus, ArrowRight } from 'lucide-react';
 import Calendar from '../components/Calendar';
 import { useHabits } from '../hooks/useHabits';
 
-const CalendarViewPage = () => {
+const CalendarView = () => {
   const { habits } = useHabits();
   const [month] = useState(new Date());
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,4 +87,4 @@ const CalendarViewPage = () => {
   );
 };
 
-export default CalendarViewPage;
+export default CalendarView;

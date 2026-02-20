@@ -6,7 +6,7 @@ import { Database, AlertTriangle, LineChart, Download, Trash2 } from 'lucide-rea
 import { STORAGE_KEYS } from '../constants/design';
 import { RoutePaths } from '../constants/enums';
 
-const SettingsPage = () => {
+const SettingsView = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -142,4 +142,4 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default SettingsView;

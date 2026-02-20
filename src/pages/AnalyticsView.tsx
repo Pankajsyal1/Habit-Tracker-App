@@ -6,7 +6,7 @@ import { eachDayOfInterval, subDays, format, isSameDay } from 'date-fns';
 import { LineChart as LineChartIcon, TrendingUp, Target } from 'lucide-react';
 import { useHabits } from '../hooks/useHabits';
 
-const AnalyticsPage = () => {
+const AnalyticsView = () => {
   const { habits, stats: hookStats } = useHabits();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -232,4 +232,4 @@ const AnalyticsPage = () => {
   );
 };
 
-export default AnalyticsPage;
+export default AnalyticsView;

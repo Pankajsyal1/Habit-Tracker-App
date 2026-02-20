@@ -30,7 +30,7 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className={`
-                flex h-10 w-10 items-center justify-center rounded-xl text-xs font-black shadow-lg transition-transform group-hover:scale-110
+                flex h-10 w-10 items-center justify-center rounded-lg text-xs font-black shadow-lg transition-transform group-hover:scale-110
                 ${habit.frequency === HabitFrequency.DAILY 
                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
                   : 'bg-sky-500/20 text-sky-400 border border-sky-500/30'}

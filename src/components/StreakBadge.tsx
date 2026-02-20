@@ -12,7 +12,7 @@ const StreakBadge = ({ habit }: StreakBadgeProps) => {
 
   return (
     <div className={`
-      inline-flex items-center gap-2.5 rounded-xl border px-3 py-1.5 transition-all
+      inline-flex items-center gap-2.5 rounded-lg border px-3 py-1.5 transition-all
       ${isHot 
         ? 'border-orange-500/30 bg-orange-500/10 text-orange-200' 
         : 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'}

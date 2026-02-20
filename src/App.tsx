@@ -9,11 +9,11 @@ import { RoutePaths } from './constants/enums';
 import AppLayout from './components/layout/AppLayout';
 
 // Lazy Loaded Pages
-const DashboardPage = lazy(() => import('./pages/Dashboard'));
-const HabitsPage = lazy(() => import('./pages/Habits'));
+const DashboardPage = lazy(() => import('./pages/DashboardView'));
+const HabitsPage = lazy(() => import('./pages/HabitsView'));
 const CalendarViewPage = lazy(() => import('./pages/CalendarView'));
-const AnalyticsPage = lazy(() => import('./pages/Analytics'));
-const SettingsPage = lazy(() => import('./pages/Settings'));
+const AnalyticsPage = lazy(() => import('./pages/AnalyticsView'));
+const SettingsPage = lazy(() => import('./pages/SettingsView'));
 
 const PageLoader = ({ children }: { children: React.ReactNode }) => {
   const container = useRef<HTMLDivElement>(null);

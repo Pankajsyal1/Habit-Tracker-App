@@ -68,13 +68,13 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
             <label className="px-1 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">
               Frequency
             </label>
-            <div className="flex h-12 rounded-xl bg-slate-950/50 border border-slate-700/50 p-1">
+            <div className="flex h-12 rounded-md bg-slate-950/50 border border-slate-700/50 p-1">
               {([HabitFrequency.DAILY, HabitFrequency.WEEKLY] as HabitFrequency[]).map((f) => (
                 <button
                   key={f}
                   type="button"
                   onClick={() => setFrequency(f)}
-                  className={`flex-1 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all ${
+                  className={`flex-1 rounded-sm text-[11px] font-bold uppercase tracking-wider transition-all ${
                     frequency === f
                       ? 'bg-emerald-500 text-slate-950 shadow-lg'
                       : 'text-slate-400 hover:text-slate-200'

@@ -6,7 +6,7 @@ import HabitCard from '../components/HabitCard';
 import { useHabits } from '../hooks/useHabits';
 import { HabitFrequency } from '../constants/enums';
 
-const HabitsPage = () => {
+const HabitsView = () => {
   const { habits, toggleComplete, deleteHabit } = useHabits();
   const [filter, setFilter] = useState<'all' | HabitFrequency>('all');
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,7 +50,7 @@ const HabitsPage = () => {
           </p>
         </div>
 
-        <div className="habits-filters flex items-center gap-1 rounded-[1.25rem] border border-slate-700/50 bg-slate-950/50 p-1">
+        <div className="habits-filters flex items-center gap-1 rounded-md border border-slate-700/50 bg-slate-950/50 p-1">
           {[
             { id: 'all', label: 'All' },
             { id: HabitFrequency.DAILY, label: 'Daily' },
@@ -61,7 +61,7 @@ const HabitsPage = () => {
               type="button"
               onClick={() => setFilter(opt.id as 'all' | HabitFrequency)}
               className={`
-                relative px-5 py-2 text-[11px] font-bold uppercase tracking-widest transition-all rounded-[0.9rem]
+                relative px-5 py-2 text-[11px] font-bold uppercase tracking-widest transition-all rounded-sm
                 ${filter === opt.id
                   ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -120,4 +120,4 @@ const HabitsPage = () => {
   );
 };
 
-export default HabitsPage;
+export default HabitsView;

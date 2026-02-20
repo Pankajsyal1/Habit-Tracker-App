@@ -15,7 +15,7 @@ import { todayIso } from '../utils/dateUtils';
 import { HabitFrequency } from '../constants/enums';
 import type { Habit } from '../types';
 
-const DashboardPage = () => {
+const DashboardView = () => {
   const { habits, addHabit, toggleComplete, updateHabit, deleteHabit, stats } = useHabits();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -111,4 +111,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default DashboardView;

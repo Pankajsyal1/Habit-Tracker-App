@@ -37,7 +37,7 @@ const QuickAddHabit = ({ onAdd }: QuickAddHabitProps) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="What's your next win?"
-          className="w-full h-12 rounded-xl border border-slate-700/50 bg-slate-950/50 px-4 text-sm text-slate-100 outline-none transition-all placeholder:text-slate-600 focus:border-emerald-500/50 focus:bg-slate-900/80 focus:ring-4 focus:ring-emerald-500/10"
+          className="w-full h-12 rounded-lg border border-slate-700/50 bg-slate-950/50 px-4 text-sm text-slate-100 outline-none transition-all placeholder:text-slate-600 focus:border-emerald-500/50 focus:bg-slate-900/80 focus:ring-4 focus:ring-emerald-500/10"
         />
       </div>
 
@@ -45,13 +45,13 @@ const QuickAddHabit = ({ onAdd }: QuickAddHabitProps) => {
         <label className="px-1 text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">
           Frequency
         </label>
-        <div className="flex h-12 rounded-xl bg-slate-950/50 border border-slate-700/50 p-1">
+        <div className="flex h-12 rounded-md bg-slate-950/50 border border-slate-700/50 p-1">
           {([HabitFrequency.DAILY, HabitFrequency.WEEKLY] as HabitFrequency[]).map((f) => (
             <button
               key={f}
               type="button"
               onClick={() => setFrequency(f)}
-              className={`flex-1 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all ${frequency === f
+              className={`flex-1 rounded-sm text-[11px] font-bold uppercase tracking-wider transition-all ${frequency === f
                 ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                 }`}
@@ -64,7 +64,7 @@ const QuickAddHabit = ({ onAdd }: QuickAddHabitProps) => {
 
        <button
         type="submit"
-        className="h-12 w-full sm:w-12 flex items-center justify-center rounded-xl bg-linear-to-br from-emerald-400 to-sky-500 text-slate-950 shadow-lg glow-primary hover:brightness-110 transition-all active:scale-95"
+        className="h-12 w-full sm:w-12 flex items-center justify-center rounded-md bg-linear-to-br from-emerald-400 to-sky-500 text-slate-950 shadow-lg glow-primary hover:brightness-110 transition-all active:scale-95"
       >
         <Plus className="add-btn-icon h-6 w-6 font-bold" />
       </button>
