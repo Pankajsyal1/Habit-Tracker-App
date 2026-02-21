@@ -1,0 +1,22 @@
+{
+    "tailwindCSS.classAttributes": [
+        "class",
+        "className"
+    ],
+    "tailwindCSS.experimental.classRegex": [
+        ["className=[\"'`]([^\"'`]*)"],
+        ["className=\"([^\"]*)\""],
+        ["className='([^']*)'"],
+        ["className=`([^`]*)`"],
+        ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^'\"`]*)(?:'|\"|`)"]
+    ],
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "tailwindCSS.lint.cssConflict": "warning",
+    "tailwindCSS.lint.invalidApply": "warning",
+    "tailwindCSS.lint.invalidScreen": "warning",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
