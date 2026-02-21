@@ -63,8 +63,8 @@ export default function DashboardScreen({ navigation }: any) {
             />
             {dailyHabits.length > 3 && (
               <TouchableOpacity 
-                onPress={() => navigation.navigate('Habits')}
-                className="mt-4 flex-row items-center justify-center gap-2 py-3 bg-emerald-500/5 rounded-2xl border border-emerald-500/10"
+                onPress={() => navigation.navigate('Habits', { filter: HabitFrequency.DAILY })}
+                className="flex-row items-center justify-center gap-2 py-3 bg-emerald-500/5 rounded-2xl border border-emerald-500/10"
               >
                 <Text className="text-xs font-black uppercase tracking-widest text-emerald-500">View All Daily Goals</Text>
                 <ChevronRight size={14} color="#10b981" strokeWidth={3} />
@@ -86,8 +86,8 @@ export default function DashboardScreen({ navigation }: any) {
             />
             {weeklyHabits.length > 3 && (
               <TouchableOpacity 
-                onPress={() => navigation.navigate('Habits')}
-                className="mt-4 flex-row items-center justify-center gap-2 py-3 bg-sky-500/5 rounded-2xl border border-sky-500/10"
+                onPress={() => navigation.navigate('Habits', { filter: HabitFrequency.WEEKLY })}
+                className="flex-row items-center justify-center gap-2 py-3 bg-sky-500/5 rounded-2xl border border-sky-500/10"
               >
                 <Text className="text-xs font-black uppercase tracking-widest text-sky-500">View All Weekly Moves</Text>
                 <ChevronRight size={14} color="#0ea5e9" strokeWidth={3} />

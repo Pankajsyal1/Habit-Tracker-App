@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, useColorScheme, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Search, Sparkles, ListTodo } from 'lucide-react-native';
@@ -11,11 +11,18 @@ import ConfirmModal from '../components/ConfirmModal';
 import EditHabitModal from '../components/EditHabitModal';
 import type { Habit } from '../types';
 
-export default function HabitsScreen({ navigation }: any) {
+export default function HabitsScreen({ navigation, route }: any) {
   const { habits, toggleComplete, deleteHabit, updateHabit, isLoading } = useHabits();
-  const [filter, setFilter] = useState<'all' | HabitFrequency>('all');
+  const [filter, setFilter] = useState<'all' | HabitFrequency>(route?.params?.filter ?? 'all');
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
+
+  // Update filter when navigating with a filter param
+  useEffect(() => {
+    if (route?.params?.filter) {
+      setFilter(route.params.filter);
+    }
+  }, [route?.params?.filter]);
 
   // Modal states
   const [deletingHabitId, setDeletingHabitId] = useState<string | null>(null);
