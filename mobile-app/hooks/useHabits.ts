@@ -9,23 +9,26 @@ export const useHabits = () => {
 
   const today = todayIso();
 
-  const habitsForToday = useMemo(
-    () => habits.filter((h) => h.frequency === HabitFrequency.DAILY),
-    [habits],
-  );
+  const stats = useMemo(() => {
+    const dailyHabits = habits.filter(h => h.frequency === HabitFrequency.DAILY);
+    const weeklyHabits = habits.filter(h => h.frequency === HabitFrequency.WEEKLY);
+    
+    const dailyCompleted = dailyHabits.filter(h => 
+      h.completedDates.some(d => isSameDayIso(d, today))
+    );
 
-  const completedToday = useMemo(
-    () =>
-      habitsForToday.filter((h) =>
-        h.completedDates.some((d) => isSameDayIso(d, today)),
-      ),
-    [habitsForToday, today],
-  );
+    const completionRate = dailyHabits.length === 0 
+      ? 0 
+      : dailyCompleted.length / dailyHabits.length;
 
-  const completionRate =
-    habitsForToday.length === 0
-      ? 0
-      : completedToday.length / habitsForToday.length;
+    return {
+      totalHabits: habits.length,
+      dailyCount: dailyHabits.length,
+      weeklyCount: weeklyHabits.length,
+      dailyCompleted: dailyCompleted.length,
+      completionRate,
+    };
+  }, [habits, today]);
 
   const addHabit = (data: { name: string; frequency: HabitFrequency }) => {
     const now = todayIso();
@@ -60,10 +63,6 @@ export const useHabits = () => {
     updateHabit,
     deleteHabit,
     toggleComplete,
-    stats: {
-      totalHabits: habits.length,
-      completedToday: completedToday.length,
-      completionRate,
-    },
+    stats,
   };
 };

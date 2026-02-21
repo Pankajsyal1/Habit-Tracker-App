@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { View, Text, useColorScheme } from 'react-native';
+import { View, Text, useColorScheme, TouchableOpacity } from 'react-native';
+import { ChevronLeft } from 'lucide-react-native';
 
 interface ScreenHeaderProps {
   title: string;
@@ -7,6 +8,7 @@ interface ScreenHeaderProps {
   icon?: ReactNode;
   accentColor?: 'emerald' | 'sky' | 'violet' | 'rose' | 'amber';
   rightElement?: ReactNode;
+  onBack?: () => void;
 }
 
 const accentMap = {
@@ -23,6 +25,7 @@ const ScreenHeader = ({
   icon,
   accentColor = 'emerald',
   rightElement,
+  onBack,
 }: ScreenHeaderProps) => {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
@@ -32,6 +35,14 @@ const ScreenHeader = ({
     <View className={`px-5 pt-2 pb-4 border-b ${isDark ? 'bg-slate-950 border-slate-800/60' : 'bg-white border-slate-200/80'}`}>
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-3 flex-1">
+          {onBack && (
+            <TouchableOpacity 
+              onPress={onBack}
+              className={`h-10 w-10 items-center justify-center rounded-2xl border ${isDark ? 'bg-slate-900 border-slate-800' : 'bg-slate-50 border-slate-200'} mr-1`}
+            >
+              <ChevronLeft size={20} color={isDark ? '#94a3b8' : '#64748b'} />
+            </TouchableOpacity>
+          )}
           {icon && (
             <View className={`h-10 w-10 items-center justify-center rounded-2xl border ${accent.bg} ${accent.border}`}>
               {icon}

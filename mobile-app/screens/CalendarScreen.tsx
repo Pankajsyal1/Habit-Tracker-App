@@ -6,7 +6,7 @@ import Calendar from '../components/Calendar';
 import ScreenHeader from '../components/ScreenHeader';
 import { useHabits } from '../hooks/useHabits';
 
-export default function CalendarScreen() {
+export default function CalendarScreen({ navigation }: any) {
   const { habits, isLoading } = useHabits();
   const [month] = useState(new Date());
   const colorScheme = useColorScheme();
@@ -27,6 +27,7 @@ export default function CalendarScreen() {
         subtitle="Visualizing your daily wins across time."
         icon={<CalendarIcon size={20} color="#38bdf8" />}
         accentColor="sky"
+        onBack={() => navigation.goBack()}
       />
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="px-4 py-8 gap-8 pb-10">
@@ -70,12 +71,15 @@ export default function CalendarScreen() {
                <Text className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                   You tend to be <Text className="text-emerald-500 font-bold">40% more active</Text> on Tuesdays and Wednesdays. Use this momentum to tackle your hardest habits early in the week.
                </Text>
-               <TouchableOpacity className="mt-4 flex-row items-center gap-2">
-                  <Text className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">
-                    View Insights
-                  </Text>
-                  <ArrowRight size={12} color="#10b981" />
-               </TouchableOpacity>
+                <TouchableOpacity 
+                  onPress={() => navigation.navigate('TabsStack', { screen: 'Analytics' })}
+                  className="mt-4 flex-row items-center gap-2"
+                >
+                   <Text className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">
+                     View Insights
+                   </Text>
+                   <ArrowRight size={12} color="#10b981" />
+                </TouchableOpacity>
             </View>
           </View>
         </View>

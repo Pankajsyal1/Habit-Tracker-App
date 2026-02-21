@@ -44,7 +44,7 @@ export default function DashboardScreen({ navigation }: any) {
       {/* 1. Sticky Header Area */}
       <DashboardHeader 
         stats={stats} 
-        dailyHabitsCount={dailyHabits.length} 
+        onCalendarPress={() => navigation.navigate('Calendar')}
       />
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
@@ -117,8 +117,8 @@ export default function DashboardScreen({ navigation }: any) {
         habit={editingHabit}
         onSave={(updates) => {
           if (editingHabit) {
-            updateHabit({ ...editingHabit, ...updates });
-            setEditingHabit(null);
+            const latest = habits.find(h => h.id === editingHabit.id);
+            if (latest) updateHabit({ ...latest, ...updates });
           }
         }}
         onClose={() => setEditingHabit(null)}

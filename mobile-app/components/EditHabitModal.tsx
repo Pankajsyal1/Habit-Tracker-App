@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, View, Text, TextInput, TouchableOpacity, useColorScheme } from 'react-native';
-import { X } from 'lucide-react-native';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Modal, View, Text, TextInput, TouchableOpacity, useColorScheme, Animated, StyleSheet } from 'react-native';
+import { X, Check } from 'lucide-react-native';
 import type { Habit } from '../types';
 import { HabitFrequency } from '../constants/enums';
 
@@ -19,8 +19,12 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
 }) => {
   const [name, setName] = useState('');
   const [frequency, setFrequency] = useState<HabitFrequency>(HabitFrequency.DAILY);
+  const [showToast, setShowToast] = useState(false);
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
+
+  const toastOpacity = useRef(new Animated.Value(0)).current;
+  const toastTranslateY = useRef(new Animated.Value(20)).current;
 
   useEffect(() => {
     if (habit) {
@@ -29,12 +33,34 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
     }
   }, [habit]);
 
+  // Reset toast when modal closes
+  useEffect(() => {
+    if (!isOpen) {
+      setShowToast(false);
+      toastOpacity.setValue(0);
+      toastTranslateY.setValue(20);
+    }
+  }, [isOpen, toastOpacity, toastTranslateY]);
+
+  const triggerSuccessToast = useCallback(() => {
+    setShowToast(true);
+    Animated.parallel([
+      Animated.timing(toastOpacity, { toValue: 1, duration: 300, useNativeDriver: true }),
+      Animated.timing(toastTranslateY, { toValue: 0, duration: 300, useNativeDriver: true }),
+    ]).start();
+  }, [toastOpacity, toastTranslateY]);
+
   if (!habit) return null;
 
   const handleSubmit = () => {
     if (!name.trim()) return;
     onSave({ name: name.trim(), frequency });
-    onClose();
+    triggerSuccessToast();
+
+    // Close modal after showing toast
+    setTimeout(() => {
+      onClose();
+    }, 1500);
   };
 
   return (
@@ -76,12 +102,17 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
                   <TouchableOpacity
                     key={f}
                     onPress={() => setFrequency(f)}
-                    className={`flex-1 rounded-lg items-center justify-center ${frequency === f
-                      ? 'bg-emerald-500'
-                      : ''
-                      }`}
+                    style={[
+                      styles.frequencyButton,
+                      frequency === f && styles.frequencyButtonActive,
+                    ]}
                   >
-                    <Text className={`text-[10px] font-bold uppercase tracking-wider ${frequency === f ? 'text-slate-900' : 'text-slate-500'}`}>
+                    <Text
+                      style={[
+                        styles.frequencyText,
+                        frequency === f ? styles.frequencyTextActive : styles.frequencyTextInactive,
+                      ]}
+                    >
                       {f}
                     </Text>
                   </TouchableOpacity>
@@ -105,9 +136,54 @@ const EditHabitModal: React.FC<EditHabitModalProps> = ({
             </View>
           </View>
         </View>
+
+        {/* Success Toast */}
+        {showToast && (
+          <Animated.View
+            style={{
+              opacity: toastOpacity,
+              transform: [{ translateY: toastTranslateY }],
+              position: 'absolute',
+              bottom: 40,
+              left: 20,
+              right: 20,
+              zIndex: 100,
+            }}
+            className="flex-row items-center gap-3 rounded-2xl bg-emerald-500 px-5 py-3 shadow-lg shadow-emerald-500/20"
+          >
+            <View className="h-6 w-6 rounded-full bg-white/20 items-center justify-center">
+              <Check size={14} color="#fff" />
+            </View>
+            <Text className="text-sm font-bold text-white tracking-tight">Habit updated successfully!</Text>
+          </Animated.View>
+        )}
       </View>
     </Modal>
   );
 };
+
+const styles = StyleSheet.create({
+  frequencyButton: {
+    flex: 1,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  frequencyButtonActive: {
+    backgroundColor: '#10b981',
+  },
+  frequencyText: {
+    fontSize: 10,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 1.5,
+  },
+  frequencyTextActive: {
+    color: '#0f172a',
+  },
+  frequencyTextInactive: {
+    color: '#64748b',
+  },
+});
 
 export default EditHabitModal;

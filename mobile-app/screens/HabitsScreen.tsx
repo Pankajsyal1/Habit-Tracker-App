@@ -125,8 +125,8 @@ export default function HabitsScreen({ navigation, route }: any) {
         habit={editingHabit}
         onSave={(updates) => {
           if (editingHabit) {
-            updateHabit({ ...editingHabit, ...updates });
-            setEditingHabit(null);
+            const latest = habits.find(h => h.id === editingHabit.id);
+            if (latest) updateHabit({ ...latest, ...updates });
           }
         }}
         onClose={() => setEditingHabit(null)}
