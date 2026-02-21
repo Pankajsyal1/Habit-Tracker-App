@@ -218,7 +218,6 @@ services:
 - Performance optimization
 
 ### Phase 4 – Production
-- Docker + Nginx
 - Environment configs
 
 ---

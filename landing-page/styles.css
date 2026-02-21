@@ -1,0 +1,36 @@
+body { font-family: 'Inter', sans-serif; background: #0A0A0F; color: #F1F5F9; }
+.font-heading { font-family: 'Space Grotesk', sans-serif; }
+/* Gradient Orbs */
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; pointer-events: none; }
+.orb-violet { background: #8B5CF6; }
+.orb-emerald { background: #10B981; }
+.orb-pink { background: #EC4899; }
+/* Glass Card */
+.glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); }
+.glass-hover:hover { background: rgba(255,255,255,0.07); border-color: rgba(167,139,250,0.3); box-shadow: 0 0 30px rgba(139,92,246,0.1); }
+/* Sticky Header */
+.header-scrolled { background: rgba(10,10,15,0.85) !important; backdrop-filter: blur(20px) !important; box-shadow: 0 1px 20px rgba(0,0,0,0.4) !important; }
+/* Animations */
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse-glow { 0%,100% { box-shadow: 0 0 20px rgba(139,92,246,0.3); } 50% { box-shadow: 0 0 40px rgba(139,92,246,0.6); } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+/* Scroll Reveal */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+/* FAQ */
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+.faq-answer.open { max-height: 300px; }
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, #A78BFA, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0F; }
+::-webkit-scrollbar-thumb { background: #2A2A3C; border-radius: 3px; }
