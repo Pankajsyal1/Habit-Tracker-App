@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DailyRise – Build Better Habits, Track Your Streaks</title>
-  <meta name="description" content="A modern habit tracking app with streak systems, calendar visualization, and analytics. Build positive habits one day at a time." />
+  <meta name="description"
+    content="A modern habit tracking app with streak systems, calendar visualization, and analytics. Build positive habits one day at a time." />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Branding Assets -->
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#8B5CF6" />
 </head>
+
 <body class="overflow-x-hidden">
 
   <!-- ========== HEADER ========== -->
@@ -25,9 +31,14 @@
         <div class="relative w-10 h-10 group-hover:scale-110 transition-transform duration-300">
           <img src="logo.svg" alt="DailyRise Logo" class="w-full h-full drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]" />
         </div>
-        <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-emerald-400 transition-colors">Daily<span class="text-violet-400">Rise</span></span>
+        <div class="flex flex-col">
+          <span
+            class="font-heading font-bold text-xl leading-none tracking-tight text-white group-hover:text-emerald-400 transition-colors">Daily<span
+              class="text-violet-400">Rise</span></span>
+          <p class="text-[10px] sm:text-[12px] text-slate-400 mt-0.5">Build streaks, not stress.</p>
+        </div>
       </a>
-      
+
       <!-- Desktop Nav (Centered) -->
       <nav class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
         <a href="#about" class="text-sm text-slate-400 hover:text-white transition-colors">About</a>
@@ -40,24 +51,33 @@
 
       <!-- Desktop Action Button -->
       <div class="hidden md:block z-10">
-        <a href="#how-it-works" class="px-6 py-3 rounded-lg bg-gradient-to-r from-violet-500 to-emerald-500 text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap">Get Started</a>
+        <a href="#how-it-works"
+          class="px-6 py-3 rounded-lg bg-gradient-to-r from-violet-500 to-emerald-500 text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap">Get
+          Started</a>
       </div>
 
       <!-- Mobile Menu Button -->
       <button id="mobileMenuBtn" class="md:hidden text-white z-10" aria-label="Open menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
       </button>
     </div>
     <!-- Mobile Nav -->
     <div id="mobileMenu" class="hidden md:hidden glass mx-4 mb-4 rounded-2xl p-6">
       <nav class="flex flex-col gap-4">
         <a href="#about" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">About</a>
-        <a href="#features" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">Features</a>
-        <a href="#screenshots" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">Screenshots</a>
-        <a href="#how-it-works" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">How It Works</a>
+        <a href="#features" class="text-slate-300 hover:text-white transition-colors"
+          onclick="closeMobile()">Features</a>
+        <a href="#screenshots" class="text-slate-300 hover:text-white transition-colors"
+          onclick="closeMobile()">Screenshots</a>
+        <a href="#how-it-works" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">How It
+          Works</a>
         <a href="#tech" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">Tech Stack</a>
         <a href="#faq" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobile()">FAQ</a>
-        <a href="#how-it-works" class="mt-2 text-center px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-500 to-emerald-500 text-white font-medium">Get Started</a>
+        <a href="#how-it-works"
+          class="mt-2 text-center px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-500 to-emerald-500 text-white font-medium">Get
+          Started</a>
       </nav>
     </div>
   </header>
@@ -76,33 +96,50 @@
           <span class="text-lg">🔥</span>
           <span class="text-sm text-slate-300">Track streaks & build consistency</span>
         </div>
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in delay-100">
-          Your Habits.<br/><span class="gradient-text">Perfected.</span>
+        <h1
+          class="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in delay-100">
+          Your Habits.<br /><span class="gradient-text">Perfected.</span>
         </h1>
         <p class="text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-in delay-200">
-          Build and maintain positive habits with streak tracking, calendar visualization, and progress analytics. Stay motivated, stay consistent.
+          Build and maintain positive habits with streak tracking, calendar visualization, and progress analytics. Stay
+          motivated, stay consistent.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in delay-300">
-          <a href="#" class="whitespace-nowrap px-8 py-3.5 rounded-lg bg-gradient-to-r from-violet-500 to-emerald-500 text-white font-medium hover:opacity-90 transition-opacity animate-pulse-glow">
+          <a href="#"
+            class="whitespace-nowrap px-8 py-3.5 rounded-lg bg-gradient-to-r from-violet-500 to-emerald-500 text-white font-medium hover:opacity-90 transition-opacity animate-pulse-glow">
             Start Tracking Free
           </a>
-          <a href="#features" class="whitespace-nowrap px-8 py-3.5 rounded-lg glass text-white font-medium hover:bg-white/10 transition-colors">
+          <a href="#features"
+            class="whitespace-nowrap px-8 py-3.5 rounded-lg glass text-white font-medium hover:bg-white/10 transition-colors">
             Explore Features →
           </a>
         </div>
         <!-- Platform Links -->
         <div class="flex flex-wrap items-center gap-3 mt-4 animate-fade-in delay-400">
           <span class="text-xs text-slate-500 mr-1">Available on:</span>
-          <a href="#" class="glass glass-hover rounded-full px-4 py-2 text-xs font-medium flex items-center gap-2 transition-all">
-            <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17h18M8 21h8"/></svg>
+          <a href="#"
+            class="glass glass-hover rounded-full px-4 py-2 text-xs font-medium flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="14" rx="2" />
+              <path d="M3 17h18M8 21h8" />
+            </svg>
             Web App
           </a>
-          <a href="#" class="glass glass-hover rounded-full px-4 py-2 text-xs font-medium flex items-center gap-2 transition-all">
-            <svg class="w-4 h-4 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <a href="#"
+            class="glass glass-hover rounded-full px-4 py-2 text-xs font-medium flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
             iOS App
           </a>
-          <a href="#" class="glass glass-hover rounded-full px-4 py-2 text-xs font-medium flex items-center gap-2 transition-all">
-            <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 2.237l1.386-1.386a.5.5 0 0 0-.707-.707l-1.565 1.565A8.967 8.967 0 0 0 12 .5a8.967 8.967 0 0 0-4.637 1.209L5.798.144a.5.5 0 0 0-.707.707l1.386 1.386A8.97 8.97 0 0 0 3 8.5v1h18v-1a8.97 8.97 0 0 0-3.477-6.263zM8.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM3 10.5v8A3.5 3.5 0 0 0 6.5 22h11a3.5 3.5 0 0 0 3.5-3.5v-8H3z"/></svg>
+          <a href="#"
+            class="glass glass-hover rounded-full px-4 py-2 text-xs font-medium flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.523 2.237l1.386-1.386a.5.5 0 0 0-.707-.707l-1.565 1.565A8.967 8.967 0 0 0 12 .5a8.967 8.967 0 0 0-4.637 1.209L5.798.144a.5.5 0 0 0-.707.707l1.386 1.386A8.97 8.97 0 0 0 3 8.5v1h18v-1a8.97 8.97 0 0 0-3.477-6.263zM8.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM3 10.5v8A3.5 3.5 0 0 0 6.5 22h11a3.5 3.5 0 0 0 3.5-3.5v-8H3z" />
+            </svg>
             Android
           </a>
         </div>
@@ -118,42 +155,79 @@
           <!-- Habit Items -->
           <div class="space-y-3">
             <div class="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3">
-              <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">✓</div>
-              <div class="flex-1"><div class="text-sm font-medium">Morning Meditation</div><div class="text-xs text-slate-500">🔥 12 day streak</div></div>
-              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">✓
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-medium">Morning Meditation</div>
+                <div class="text-xs text-slate-500">🔥 12 day streak</div>
+              </div>
+              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                  class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div>
             </div>
             <div class="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3">
               <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-400">📖</div>
-              <div class="flex-1"><div class="text-sm font-medium">Read 30 Minutes</div><div class="text-xs text-slate-500">🔥 8 day streak</div></div>
-              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+              <div class="flex-1">
+                <div class="text-sm font-medium">Read 30 Minutes</div>
+                <div class="text-xs text-slate-500">🔥 8 day streak</div>
+              </div>
+              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                  class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div>
             </div>
             <div class="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3">
               <div class="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-400">💪</div>
-              <div class="flex-1"><div class="text-sm font-medium">Workout</div><div class="text-xs text-slate-500">⏳ Not done yet</div></div>
+              <div class="flex-1">
+                <div class="text-sm font-medium">Workout</div>
+                <div class="text-xs text-slate-500">⏳ Not done yet</div>
+              </div>
               <div class="w-6 h-6 rounded-full border border-slate-600"></div>
             </div>
             <div class="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3">
               <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400">💧</div>
-              <div class="flex-1"><div class="text-sm font-medium">Drink 8 Glasses</div><div class="text-xs text-slate-500">🔥 21 day streak</div></div>
-              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+              <div class="flex-1">
+                <div class="text-sm font-medium">Drink 8 Glasses</div>
+                <div class="text-xs text-slate-500">🔥 21 day streak</div>
+              </div>
+              <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                  class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div>
             </div>
           </div>
           <!-- Stats Bar -->
           <div class="mt-5 flex items-center justify-between bg-white/5 rounded-xl px-4 py-3">
-            <div class="text-center"><div class="text-lg font-heading font-bold text-emerald-400">75%</div><div class="text-[10px] text-slate-500">Today</div></div>
+            <div class="text-center">
+              <div class="text-lg font-heading font-bold text-emerald-400">75%</div>
+              <div class="text-[10px] text-slate-500">Today</div>
+            </div>
             <div class="w-px h-8 bg-slate-700"></div>
-            <div class="text-center"><div class="text-lg font-heading font-bold text-violet-400">21</div><div class="text-[10px] text-slate-500">Best Streak</div></div>
+            <div class="text-center">
+              <div class="text-lg font-heading font-bold text-violet-400">21</div>
+              <div class="text-[10px] text-slate-500">Best Streak</div>
+            </div>
             <div class="w-px h-8 bg-slate-700"></div>
-            <div class="text-center"><div class="text-lg font-heading font-bold text-amber-400">4</div><div class="text-[10px] text-slate-500">Active</div></div>
+            <div class="text-center">
+              <div class="text-lg font-heading font-bold text-amber-400">4</div>
+              <div class="text-[10px] text-slate-500">Active</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Scroll Indicator -->
-    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 glass rounded-full px-5 py-2.5 flex items-center gap-2 text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer group">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><rect x="7" y="2" width="10" height="16" rx="5" /><line x1="12" y1="6" x2="12" y2="10" class="animate-bounce" /></svg>
+    <a href="#about"
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 glass rounded-full px-5 py-2.5 flex items-center gap-2 text-slate-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer group">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <rect x="7" y="2" width="10" height="16" rx="5" />
+        <line x1="12" y1="6" x2="12" y2="10" class="animate-bounce" />
+      </svg>
       <span class="text-xs font-medium tracking-wide">Scroll Down</span>
-      <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+      <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+      </svg>
     </a>
   </section>
 
@@ -167,40 +241,95 @@
           <div class="glass rounded-3xl p-8 relative">
             <div class="grid grid-cols-7 gap-1.5">
               <!-- Mini Calendar -->
-              <div class="text-[10px] text-slate-500 text-center font-medium col-span-7 mb-2 font-heading">February 2026</div>
-              <div class="text-[9px] text-slate-600 text-center">Su</div><div class="text-[9px] text-slate-600 text-center">Mo</div><div class="text-[9px] text-slate-600 text-center">Tu</div><div class="text-[9px] text-slate-600 text-center">We</div><div class="text-[9px] text-slate-600 text-center">Th</div><div class="text-[9px] text-slate-600 text-center">Fr</div><div class="text-[9px] text-slate-600 text-center">Sa</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">1</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">2</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">3</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">4</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">5</div>
-              <div class="aspect-square rounded-md bg-slate-800 text-slate-500 text-[10px] flex items-center justify-center">6</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">7</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">8</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">9</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">10</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">11</div>
-              <div class="aspect-square rounded-md bg-slate-800 text-slate-500 text-[10px] flex items-center justify-center">12</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">13</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">14</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">15</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">16</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">17</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">18</div>
-              <div class="aspect-square rounded-md bg-slate-800 text-slate-500 text-[10px] flex items-center justify-center">19</div>
-              <div class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">20</div>
-              <div class="aspect-square rounded-md bg-violet-500/30 text-violet-400 text-[10px] flex items-center justify-center ring-2 ring-violet-400">21</div>
+              <div class="text-[10px] text-slate-500 text-center font-medium col-span-7 mb-2 font-heading">February 2026
+              </div>
+              <div class="text-[9px] text-slate-600 text-center">Su</div>
+              <div class="text-[9px] text-slate-600 text-center">Mo</div>
+              <div class="text-[9px] text-slate-600 text-center">Tu</div>
+              <div class="text-[9px] text-slate-600 text-center">We</div>
+              <div class="text-[9px] text-slate-600 text-center">Th</div>
+              <div class="text-[9px] text-slate-600 text-center">Fr</div>
+              <div class="text-[9px] text-slate-600 text-center">Sa</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                1</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                2</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                3</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                4</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                5</div>
+              <div
+                class="aspect-square rounded-md bg-slate-800 text-slate-500 text-[10px] flex items-center justify-center">
+                6</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                7</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                8</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                9</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                10</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                11</div>
+              <div
+                class="aspect-square rounded-md bg-slate-800 text-slate-500 text-[10px] flex items-center justify-center">
+                12</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                13</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                14</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                15</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                16</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                17</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                18</div>
+              <div
+                class="aspect-square rounded-md bg-slate-800 text-slate-500 text-[10px] flex items-center justify-center">
+                19</div>
+              <div
+                class="aspect-square rounded-md bg-emerald-500/20 text-emerald-400 text-[10px] flex items-center justify-center">
+                20</div>
+              <div
+                class="aspect-square rounded-md bg-violet-500/30 text-violet-400 text-[10px] flex items-center justify-center ring-2 ring-violet-400">
+                21</div>
             </div>
             <!-- Streak badge -->
-            <div class="absolute -top-3 -right-3 bg-gradient-to-r from-violet-500 to-emerald-500 rounded-full px-3 py-1 text-xs font-heading font-bold shadow-lg">🔥 18 days</div>
+            <div
+              class="absolute -top-3 -right-3 bg-gradient-to-r from-violet-500 to-emerald-500 rounded-full px-3 py-1 text-xs font-heading font-bold shadow-lg">
+              🔥 18 days</div>
           </div>
         </div>
         <!-- About Text -->
         <div class="flex-1 reveal delay-200">
           <span class="text-emerald-400 text-sm font-medium tracking-wider uppercase">About the App</span>
-          <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-6">Consistency made <span class="gradient-text">visible</span></h2>
-          <p class="text-slate-400 leading-relaxed mb-4">DailyRise helps you build and maintain positive habits by providing clear, visual feedback on your progress. See your streaks grow, track completions on a beautiful calendar, and stay motivated with real-time analytics.</p>
-          <p class="text-slate-400 leading-relaxed mb-6">Available on both web and mobile, your habits sync seamlessly across devices. Whether it's daily meditation, reading, or exercise — we make it stick.</p>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-6">Consistency made <span
+              class="gradient-text">visible</span></h2>
+          <p class="text-slate-400 leading-relaxed mb-4">DailyRise helps you build and maintain positive habits by
+            providing clear, visual feedback on your progress. See your streaks grow, track completions on a beautiful
+            calendar, and stay motivated with real-time analytics.</p>
+          <p class="text-slate-400 leading-relaxed mb-6">Available on both web and mobile, your habits sync seamlessly
+            across devices. Whether it's daily meditation, reading, or exercise — we make it stick.</p>
           <div class="flex flex-wrap gap-3">
             <span class="glass rounded-full px-4 py-1.5 text-sm text-violet-400">📱 Cross-Platform</span>
             <span class="glass rounded-full px-4 py-1.5 text-sm text-emerald-400">🔥 Streak Tracking</span>
@@ -217,45 +346,53 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <span class="text-violet-400 text-sm font-medium tracking-wider uppercase">Features</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Everything you need to <span class="gradient-text">build habits</span></h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">Powerful features designed to keep you consistent and motivated every single day.</p>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Everything you need to <span
+            class="gradient-text">build habits</span></h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Powerful features designed to keep you consistent and motivated
+          every single day.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Feature 1 -->
         <div class="glass glass-hover rounded-2xl p-6 transition-all duration-300 reveal">
           <div class="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center text-2xl mb-4">📝</div>
           <h3 class="font-heading font-semibold text-lg mb-2">Habit Management</h3>
-          <p class="text-sm text-slate-400">Create, edit, and organize your habits with daily or weekly frequency. Full CRUD control at your fingertips.</p>
+          <p class="text-sm text-slate-400">Create, edit, and organize your habits with daily or weekly frequency. Full
+            CRUD control at your fingertips.</p>
         </div>
         <!-- Feature 2 -->
         <div class="glass glass-hover rounded-2xl p-6 transition-all duration-300 reveal delay-100">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center text-2xl mb-4">🔥</div>
           <h3 class="font-heading font-semibold text-lg mb-2">Streak System</h3>
-          <p class="text-sm text-slate-400">Watch your streaks grow with daily and weekly tracking. Beat your personal best and stay motivated.</p>
+          <p class="text-sm text-slate-400">Watch your streaks grow with daily and weekly tracking. Beat your personal
+            best and stay motivated.</p>
         </div>
         <!-- Feature 3 -->
         <div class="glass glass-hover rounded-2xl p-6 transition-all duration-300 reveal delay-200">
           <div class="w-12 h-12 rounded-xl bg-pink-500/15 flex items-center justify-center text-2xl mb-4">📅</div>
           <h3 class="font-heading font-semibold text-lg mb-2">Progress Calendar</h3>
-          <p class="text-sm text-slate-400">Beautiful monthly calendar view with color-coded days. See your completed and missed days at a glance.</p>
+          <p class="text-sm text-slate-400">Beautiful monthly calendar view with color-coded days. See your completed
+            and missed days at a glance.</p>
         </div>
         <!-- Feature 4 -->
         <div class="glass glass-hover rounded-2xl p-6 transition-all duration-300 reveal delay-100">
           <div class="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center text-2xl mb-4">📊</div>
           <h3 class="font-heading font-semibold text-lg mb-2">Analytics Dashboard</h3>
-          <p class="text-sm text-slate-400">Completion percentages, current vs. best streaks, and weekly/monthly summaries to keep you informed.</p>
+          <p class="text-sm text-slate-400">Completion percentages, current vs. best streaks, and weekly/monthly
+            summaries to keep you informed.</p>
         </div>
         <!-- Feature 5 -->
         <div class="glass glass-hover rounded-2xl p-6 transition-all duration-300 reveal delay-200">
           <div class="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center text-2xl mb-4">🌓</div>
           <h3 class="font-heading font-semibold text-lg mb-2">Dark & Light Mode</h3>
-          <p class="text-sm text-slate-400">Seamless theme switching for comfortable use any time of day. Your preference, your choice.</p>
+          <p class="text-sm text-slate-400">Seamless theme switching for comfortable use any time of day. Your
+            preference, your choice.</p>
         </div>
         <!-- Feature 6 -->
         <div class="glass glass-hover rounded-2xl p-6 transition-all duration-300 reveal delay-300">
           <div class="w-12 h-12 rounded-xl bg-teal-500/15 flex items-center justify-center text-2xl mb-4">🐳</div>
           <h3 class="font-heading font-semibold text-lg mb-2">Docker Ready</h3>
-          <p class="text-sm text-slate-400">Fully containerized with Docker & Docker Compose. One command to spin up your development environment.</p>
+          <p class="text-sm text-slate-400">Fully containerized with Docker & Docker Compose. One command to spin up
+            your development environment.</p>
         </div>
       </div>
     </div>
@@ -267,48 +404,82 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <span class="text-emerald-400 text-sm font-medium tracking-wider uppercase">How It Works</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Three steps to <span class="gradient-text">better habits</span></h2>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Three steps to <span
+            class="gradient-text">better habits</span></h2>
         <p class="text-slate-400 max-w-2xl mx-auto">Getting started is simple. Build your routine in minutes.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8 items-stretch">
         <!-- Step 1 -->
         <div class="reveal flex flex-col">
           <div class="glass rounded-2xl p-5 mb-6 relative overflow-hidden group flex-1">
-            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center font-heading font-bold text-sm">1</div>
+            <div
+              class="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center font-heading font-bold text-sm">
+              1</div>
             <!-- Step 1 Mockup -->
             <div class="bg-dark-800 rounded-xl p-4">
               <div class="text-xs text-slate-500 mb-3 font-heading">Create a Habit</div>
               <div class="space-y-2">
-                <div class="bg-dark-700 rounded-lg p-2.5"><div class="text-[11px] text-slate-500 mb-1">Habit Name</div><div class="text-sm">Morning Meditation</div></div>
-                <div class="bg-dark-700 rounded-lg p-2.5"><div class="text-[11px] text-slate-500 mb-1">Frequency</div><div class="flex gap-2"><span class="text-[11px] bg-violet-500/20 text-violet-400 px-2 py-0.5 rounded">Daily</span><span class="text-[11px] bg-white/5 text-slate-500 px-2 py-0.5 rounded">Weekly</span></div></div>
-                <div class="bg-gradient-to-r from-violet-500 to-emerald-500 rounded-lg py-2 text-center text-xs font-medium mt-3">Create Habit</div>
+                <div class="bg-dark-700 rounded-lg p-2.5">
+                  <div class="text-[11px] text-slate-500 mb-1">Habit Name</div>
+                  <div class="text-sm">Morning Meditation</div>
+                </div>
+                <div class="bg-dark-700 rounded-lg p-2.5">
+                  <div class="text-[11px] text-slate-500 mb-1">Frequency</div>
+                  <div class="flex gap-2"><span
+                      class="text-[11px] bg-violet-500/20 text-violet-400 px-2 py-0.5 rounded">Daily</span><span
+                      class="text-[11px] bg-white/5 text-slate-500 px-2 py-0.5 rounded">Weekly</span></div>
+                </div>
+                <div
+                  class="bg-gradient-to-r from-violet-500 to-emerald-500 rounded-lg py-2 text-center text-xs font-medium mt-3">
+                  Create Habit</div>
               </div>
             </div>
           </div>
           <h3 class="font-heading font-semibold text-lg mb-2">Create Your Habits</h3>
-          <p class="text-sm text-slate-400">Define what you want to track. Set daily or weekly goals that matter to you.</p>
+          <p class="text-sm text-slate-400">Define what you want to track. Set daily or weekly goals that matter to you.
+          </p>
         </div>
         <!-- Step 2 -->
         <div class="reveal delay-200 flex flex-col">
           <div class="glass rounded-2xl p-5 mb-6 relative overflow-hidden flex-1">
-            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center font-heading font-bold text-sm">2</div>
+            <div
+              class="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center font-heading font-bold text-sm">
+              2</div>
             <!-- Step 2 Mockup -->
             <div class="bg-dark-800 rounded-xl p-4">
               <div class="text-xs text-slate-500 mb-3 font-heading">Mark Complete</div>
               <div class="space-y-2">
-                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5"><div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm flex-1">Meditate</span><span class="text-xs text-emerald-400">🔥 12</span></div>
-                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5"><div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm flex-1">Read</span><span class="text-xs text-emerald-400">🔥 8</span></div>
-                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5"><div class="w-5 h-5 rounded-full border border-slate-600"></div><span class="text-sm flex-1 text-slate-500">Workout</span><span class="text-xs text-slate-600">—</span></div>
+                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5">
+                  <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                      class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg></div><span class="text-sm flex-1">Meditate</span><span class="text-xs text-emerald-400">🔥
+                    12</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5">
+                  <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                      class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg></div><span class="text-sm flex-1">Read</span><span class="text-xs text-emerald-400">🔥
+                    8</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5">
+                  <div class="w-5 h-5 rounded-full border border-slate-600"></div><span
+                    class="text-sm flex-1 text-slate-500">Workout</span><span class="text-xs text-slate-600">—</span>
+                </div>
               </div>
             </div>
           </div>
           <h3 class="font-heading font-semibold text-lg mb-2">Track Daily Progress</h3>
-          <p class="text-sm text-slate-400">Check off habits as you complete them. Watch your streaks build with each day.</p>
+          <p class="text-sm text-slate-400">Check off habits as you complete them. Watch your streaks build with each
+            day.</p>
         </div>
         <!-- Step 3 -->
         <div class="reveal delay-400 flex flex-col">
           <div class="glass rounded-2xl p-5 mb-6 relative overflow-hidden flex-1">
-            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center font-heading font-bold text-sm">3</div>
+            <div
+              class="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-emerald-500 flex items-center justify-center font-heading font-bold text-sm">
+              3</div>
             <!-- Step 3 Mockup -->
             <div class="bg-dark-800 rounded-xl p-4">
               <div class="text-xs text-slate-500 mb-3 font-heading">Your Analytics</div>
@@ -321,15 +492,24 @@
                 <div class="flex-1 bg-emerald-500/80 rounded-t" style="height:85%"></div>
                 <div class="flex-1 bg-emerald-500 rounded-t" style="height:100%"></div>
               </div>
-              <div class="flex justify-between text-[9px] text-slate-600"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+              <div class="flex justify-between text-[9px] text-slate-600">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
               <div class="mt-3 flex gap-2">
-                <div class="flex-1 bg-dark-700 rounded-lg p-2 text-center"><div class="text-emerald-400 font-heading font-bold">85%</div><div class="text-[9px] text-slate-500">Rate</div></div>
-                <div class="flex-1 bg-dark-700 rounded-lg p-2 text-center"><div class="text-violet-400 font-heading font-bold">21</div><div class="text-[9px] text-slate-500">Streak</div></div>
+                <div class="flex-1 bg-dark-700 rounded-lg p-2 text-center">
+                  <div class="text-emerald-400 font-heading font-bold">85%</div>
+                  <div class="text-[9px] text-slate-500">Rate</div>
+                </div>
+                <div class="flex-1 bg-dark-700 rounded-lg p-2 text-center">
+                  <div class="text-violet-400 font-heading font-bold">21</div>
+                  <div class="text-[9px] text-slate-500">Streak</div>
+                </div>
               </div>
             </div>
           </div>
           <h3 class="font-heading font-semibold text-lg mb-2">Analyze & Improve</h3>
-          <p class="text-sm text-slate-400">View detailed analytics with charts, trends, and insights to optimize your routine.</p>
+          <p class="text-sm text-slate-400">View detailed analytics with charts, trends, and insights to optimize your
+            routine.</p>
         </div>
       </div>
     </div>
@@ -342,8 +522,10 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-20 reveal">
         <span class="text-emerald-400 text-sm font-medium tracking-wider uppercase">App Screenshots</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">See it in <span class="gradient-text">action</span></h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">A look at the beautiful interface designed to keep you focused and motivated.</p>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">See it in <span
+            class="gradient-text">action</span></h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">A look at the beautiful interface designed to keep you focused and
+          motivated.</p>
       </div>
 
       <!-- Row 1: Image Left, Text Right -->
@@ -353,16 +535,42 @@
             <div class="bg-dark-800 rounded-xl p-5">
               <div class="flex items-center justify-between mb-4">
                 <div class="font-heading font-semibold">Dashboard</div>
-                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div><div class="w-2.5 h-2.5 rounded-full bg-emerald-500/60"></div></div>
+                <div class="flex gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/60"></div>
+                </div>
               </div>
               <div class="grid grid-cols-2 gap-3 mb-4">
-                <div class="bg-dark-700 rounded-xl p-3 text-center"><div class="text-2xl font-heading font-bold text-emerald-400">4</div><div class="text-[10px] text-slate-500 mt-1">Active Habits</div></div>
-                <div class="bg-dark-700 rounded-xl p-3 text-center"><div class="text-2xl font-heading font-bold text-violet-400">21</div><div class="text-[10px] text-slate-500 mt-1">Day Streak 🔥</div></div>
+                <div class="bg-dark-700 rounded-xl p-3 text-center">
+                  <div class="text-2xl font-heading font-bold text-emerald-400">4</div>
+                  <div class="text-[10px] text-slate-500 mt-1">Active Habits</div>
+                </div>
+                <div class="bg-dark-700 rounded-xl p-3 text-center">
+                  <div class="text-2xl font-heading font-bold text-violet-400">21</div>
+                  <div class="text-[10px] text-slate-500 mt-1">Day Streak 🔥</div>
+                </div>
               </div>
               <div class="space-y-2">
-                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5"><div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm flex-1">Morning Meditation</span><span class="text-xs text-emerald-400">Done</span></div>
-                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5"><div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm flex-1">Read 30 Mins</span><span class="text-xs text-emerald-400">Done</span></div>
-                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5"><div class="w-5 h-5 rounded-full border border-slate-600"></div><span class="text-sm flex-1 text-slate-500">Evening Walk</span><span class="text-xs text-slate-600">Pending</span></div>
+                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5">
+                  <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                      class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg></div><span class="text-sm flex-1">Morning Meditation</span><span
+                    class="text-xs text-emerald-400">Done</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5">
+                  <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"><svg
+                      class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg></div><span class="text-sm flex-1">Read 30 Mins</span><span
+                    class="text-xs text-emerald-400">Done</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-700 rounded-lg p-2.5">
+                  <div class="w-5 h-5 rounded-full border border-slate-600"></div><span
+                    class="text-sm flex-1 text-slate-500">Evening Walk</span><span
+                    class="text-xs text-slate-600">Pending</span>
+                </div>
               </div>
             </div>
           </div>
@@ -370,11 +578,27 @@
         <div class="flex-1">
           <span class="text-violet-400 text-xs font-medium tracking-wider uppercase">Dashboard View</span>
           <h3 class="font-heading text-2xl sm:text-3xl font-bold mt-2 mb-4">Your daily command center</h3>
-          <p class="text-slate-400 leading-relaxed mb-4">Get an instant overview of today's habits, your active streak, and completion status — all in one clean dashboard.</p>
+          <p class="text-slate-400 leading-relaxed mb-4">Get an instant overview of today's habits, your active streak,
+            and completion status — all in one clean dashboard.</p>
           <ul class="space-y-3">
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Quick-complete buttons for one-tap tracking</span></li>
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Real-time streak counter with fire animation</span></li>
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Filter habits by daily or weekly frequency</span></li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Quick-complete buttons for one-tap tracking</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Real-time streak counter with fire animation</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Filter habits by daily or weekly frequency</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -389,33 +613,88 @@
                 <div class="text-xs text-slate-500">February 2026</div>
               </div>
               <div class="grid grid-cols-7 gap-1.5">
-                <div class="text-[9px] text-slate-600 text-center">Su</div><div class="text-[9px] text-slate-600 text-center">Mo</div><div class="text-[9px] text-slate-600 text-center">Tu</div><div class="text-[9px] text-slate-600 text-center">We</div><div class="text-[9px] text-slate-600 text-center">Th</div><div class="text-[9px] text-slate-600 text-center">Fr</div><div class="text-[9px] text-slate-600 text-center">Sa</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">1</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">2</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">3</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">4</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">5</div>
-                <div class="aspect-square rounded-md bg-red-500/20 text-red-400 text-[10px] flex items-center justify-center">6</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">7</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">8</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">9</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">10</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">11</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">12</div>
-                <div class="aspect-square rounded-md bg-red-500/20 text-red-400 text-[10px] flex items-center justify-center">13</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">14</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">15</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">16</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">17</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">18</div>
-                <div class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">19</div>
-                <div class="aspect-square rounded-md bg-red-500/20 text-red-400 text-[10px] flex items-center justify-center">20</div>
-                <div class="aspect-square rounded-md bg-violet-500/30 text-violet-400 text-[10px] flex items-center justify-center ring-2 ring-violet-400">21</div>
+                <div class="text-[9px] text-slate-600 text-center">Su</div>
+                <div class="text-[9px] text-slate-600 text-center">Mo</div>
+                <div class="text-[9px] text-slate-600 text-center">Tu</div>
+                <div class="text-[9px] text-slate-600 text-center">We</div>
+                <div class="text-[9px] text-slate-600 text-center">Th</div>
+                <div class="text-[9px] text-slate-600 text-center">Fr</div>
+                <div class="text-[9px] text-slate-600 text-center">Sa</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  1</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  2</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  3</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  4</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  5</div>
+                <div
+                  class="aspect-square rounded-md bg-red-500/20 text-red-400 text-[10px] flex items-center justify-center">
+                  6</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  7</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  8</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  9</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  10</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  11</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  12</div>
+                <div
+                  class="aspect-square rounded-md bg-red-500/20 text-red-400 text-[10px] flex items-center justify-center">
+                  13</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  14</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  15</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  16</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  17</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  18</div>
+                <div
+                  class="aspect-square rounded-md bg-emerald-500/25 text-emerald-400 text-[10px] flex items-center justify-center">
+                  19</div>
+                <div
+                  class="aspect-square rounded-md bg-red-500/20 text-red-400 text-[10px] flex items-center justify-center">
+                  20</div>
+                <div
+                  class="aspect-square rounded-md bg-violet-500/30 text-violet-400 text-[10px] flex items-center justify-center ring-2 ring-violet-400">
+                  21</div>
               </div>
               <div class="mt-3 flex gap-4 text-[10px]">
-                <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded bg-emerald-500/40"></div><span class="text-slate-500">Completed</span></div>
-                <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded bg-red-500/30"></div><span class="text-slate-500">Missed</span></div>
-                <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded ring-1 ring-violet-400"></div><span class="text-slate-500">Today</span></div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded bg-emerald-500/40"></div><span class="text-slate-500">Completed</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded bg-red-500/30"></div><span class="text-slate-500">Missed</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded ring-1 ring-violet-400"></div><span
+                    class="text-slate-500">Today</span>
+                </div>
               </div>
             </div>
           </div>
@@ -423,11 +702,27 @@
         <div class="flex-1">
           <span class="text-emerald-400 text-xs font-medium tracking-wider uppercase">Calendar View</span>
           <h3 class="font-heading text-2xl sm:text-3xl font-bold mt-2 mb-4">Visualize your consistency</h3>
-          <p class="text-slate-400 leading-relaxed mb-4">See your habit journey on a beautiful color-coded calendar. Green for wins, red for misses — instant visual accountability.</p>
+          <p class="text-slate-400 leading-relaxed mb-4">See your habit journey on a beautiful color-coded calendar.
+            Green for wins, red for misses — instant visual accountability.</p>
           <ul class="space-y-3">
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Monthly view with color-coded completion</span></li>
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Click any date to view habit details</span></li>
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Spot patterns and missed days at a glance</span></li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Monthly view with color-coded completion</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Click any date to view habit details</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Spot patterns and missed days at a glance</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -450,11 +745,22 @@
                 <div class="flex-1 bg-emerald-500/80 rounded-t" style="height:90%"></div>
                 <div class="flex-1 bg-emerald-500 rounded-t" style="height:100%"></div>
               </div>
-              <div class="flex justify-between text-[9px] text-slate-600 mb-4"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+              <div class="flex justify-between text-[9px] text-slate-600 mb-4">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
               <div class="grid grid-cols-3 gap-2">
-                <div class="bg-dark-700 rounded-lg p-2.5 text-center"><div class="text-emerald-400 font-heading font-bold text-lg">85%</div><div class="text-[9px] text-slate-500">Completion</div></div>
-                <div class="bg-dark-700 rounded-lg p-2.5 text-center"><div class="text-violet-400 font-heading font-bold text-lg">21</div><div class="text-[9px] text-slate-500">Current</div></div>
-                <div class="bg-dark-700 rounded-lg p-2.5 text-center"><div class="text-amber-400 font-heading font-bold text-lg">30</div><div class="text-[9px] text-slate-500">Best</div></div>
+                <div class="bg-dark-700 rounded-lg p-2.5 text-center">
+                  <div class="text-emerald-400 font-heading font-bold text-lg">85%</div>
+                  <div class="text-[9px] text-slate-500">Completion</div>
+                </div>
+                <div class="bg-dark-700 rounded-lg p-2.5 text-center">
+                  <div class="text-violet-400 font-heading font-bold text-lg">21</div>
+                  <div class="text-[9px] text-slate-500">Current</div>
+                </div>
+                <div class="bg-dark-700 rounded-lg p-2.5 text-center">
+                  <div class="text-amber-400 font-heading font-bold text-lg">30</div>
+                  <div class="text-[9px] text-slate-500">Best</div>
+                </div>
               </div>
             </div>
           </div>
@@ -462,11 +768,27 @@
         <div class="flex-1">
           <span class="text-amber-400 text-xs font-medium tracking-wider uppercase">Analytics</span>
           <h3 class="font-heading text-2xl sm:text-3xl font-bold mt-2 mb-4">Data-driven improvement</h3>
-          <p class="text-slate-400 leading-relaxed mb-4">Track your performance with beautiful charts, completion rates, and streak comparisons. Know exactly where you stand.</p>
+          <p class="text-slate-400 leading-relaxed mb-4">Track your performance with beautiful charts, completion rates,
+            and streak comparisons. Know exactly where you stand.</p>
           <ul class="space-y-3">
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Weekly and monthly completion charts</span></li>
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Current streak vs. personal best comparison</span></li>
-            <li class="flex items-start gap-3"><div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5"><svg class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><span class="text-sm text-slate-300">Identify trends and optimize your routine</span></li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Weekly and monthly completion charts</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Current streak vs. personal best comparison</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center mt-0.5"><svg
+                  class="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg></div><span class="text-sm text-slate-300">Identify trends and optimize your routine</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -479,35 +801,50 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <span class="text-violet-400 text-sm font-medium tracking-wider uppercase">Why Choose Us</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Built for people who <span class="gradient-text">mean it</span></h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">Not just another todo app. DailyRise is purpose-built for building lasting routines.</p>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Built for people who <span
+            class="gradient-text">mean it</span></h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Not just another todo app. DailyRise is purpose-built for building
+          lasting routines.</p>
       </div>
       <!-- Stats Row -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         <div class="glass rounded-2xl p-6 text-center reveal">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
           <div class="text-3xl font-heading font-bold gradient-text mb-1">10K+</div>
           <div class="text-sm text-slate-400">Habits Tracked</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center reveal delay-100">
           <div class="w-12 h-12 rounded-xl bg-violet-500/15 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
           </div>
           <div class="text-3xl font-heading font-bold gradient-text mb-1">85%</div>
           <div class="text-sm text-slate-400">Avg. Consistency</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center reveal delay-200">
           <div class="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0121 13a7.98 7.98 0 01-3.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14l.879 2.121z"/></svg>
+            <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0121 13a7.98 7.98 0 01-3.343 5.657z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 16.121A3 3 0 1012.015 11L11 14l.879 2.121z" />
+            </svg>
           </div>
           <div class="text-3xl font-heading font-bold gradient-text mb-1">30+</div>
           <div class="text-sm text-slate-400">Day Best Streaks</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center reveal delay-300">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/15 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
           </div>
           <div class="text-3xl font-heading font-bold gradient-text mb-1">2</div>
           <div class="text-sm text-slate-400">Platforms (Web + Mobile)</div>
@@ -519,28 +856,32 @@
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center text-xl shrink-0">⚡</div>
           <div>
             <h3 class="font-heading font-semibold mb-1">Instant Feedback</h3>
-            <p class="text-sm text-slate-400">Real-time streak updates and visual progress give you instant gratification as you complete habits.</p>
+            <p class="text-sm text-slate-400">Real-time streak updates and visual progress give you instant
+              gratification as you complete habits.</p>
           </div>
         </div>
         <div class="glass glass-hover rounded-2xl p-6 flex gap-4 transition-all duration-300 reveal delay-100">
           <div class="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center text-xl shrink-0">🎯</div>
           <div>
             <h3 class="font-heading font-semibold mb-1">Science-Backed</h3>
-            <p class="text-sm text-slate-400">Streak mechanics leverage habit loop psychology — cue, routine, reward — to make habits stick.</p>
+            <p class="text-sm text-slate-400">Streak mechanics leverage habit loop psychology — cue, routine, reward —
+              to make habits stick.</p>
           </div>
         </div>
         <div class="glass glass-hover rounded-2xl p-6 flex gap-4 transition-all duration-300 reveal delay-200">
           <div class="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center text-xl shrink-0">🔒</div>
           <div>
             <h3 class="font-heading font-semibold mb-1">Privacy First</h3>
-            <p class="text-sm text-slate-400">Your data stays local. No accounts required for Phase 1. Optional cloud sync when you're ready.</p>
+            <p class="text-sm text-slate-400">Your data stays local. No accounts required for Phase 1. Optional cloud
+              sync when you're ready.</p>
           </div>
         </div>
         <div class="glass glass-hover rounded-2xl p-6 flex gap-4 transition-all duration-300 reveal delay-300">
           <div class="w-10 h-10 rounded-xl bg-pink-500/15 flex items-center justify-center text-xl shrink-0">🚀</div>
           <div>
             <h3 class="font-heading font-semibold mb-1">Lightweight & Fast</h3>
-            <p class="text-sm text-slate-400">Powered by Vite with zero bloat. Instant page loads and buttery smooth animations.</p>
+            <p class="text-sm text-slate-400">Powered by Vite with zero bloat. Instant page loads and buttery smooth
+              animations.</p>
           </div>
         </div>
       </div>
@@ -553,8 +894,10 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <span class="text-emerald-400 text-sm font-medium tracking-wider uppercase">Tech Stack</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Powered by <span class="gradient-text">modern tech</span></h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">Built with industry-standard tools for performance, scalability, and developer happiness.</p>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Powered by <span class="gradient-text">modern
+            tech</span></h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Built with industry-standard tools for performance, scalability, and
+          developer happiness.</p>
       </div>
       <!-- Tech Categories -->
       <div class="grid md:grid-cols-2 gap-8">
@@ -562,23 +905,36 @@
         <div class="glass rounded-2xl p-6 reveal">
           <h3 class="font-heading font-semibold text-lg mb-4 text-violet-400">Frontend</h3>
           <div class="flex flex-wrap gap-3">
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
-              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(120 12 12)"/></svg>
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="2.5" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"
+                  transform="rotate(60 12 12)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"
+                  transform="rotate(120 12 12)" />
+              </svg>
               React 19
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-blue-400 font-bold text-xs">TS</span> TypeScript
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-yellow-400">⚡</span> Vite
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-cyan-400">🎨</span> Tailwind CSS
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-red-400">🧭</span> React Router
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-green-400">📅</span> date-fns
             </span>
           </div>
@@ -587,16 +943,20 @@
         <div class="glass rounded-2xl p-6 reveal delay-100">
           <h3 class="font-heading font-semibold text-lg mb-4 text-emerald-400">Mobile</h3>
           <div class="flex flex-wrap gap-3">
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-cyan-400">📱</span> React Native
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-white">◉</span> Expo
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-violet-400">💨</span> NativeWind
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-blue-400">🧭</span> React Navigation
             </span>
           </div>
@@ -605,13 +965,16 @@
         <div class="glass rounded-2xl p-6 reveal delay-200">
           <h3 class="font-heading font-semibold text-lg mb-4 text-amber-400">DevOps</h3>
           <div class="flex flex-wrap gap-3">
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-blue-400">🐳</span> Docker
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-blue-300">📦</span> Docker Compose
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-green-400">🌐</span> Nginx
             </span>
           </div>
@@ -620,13 +983,16 @@
         <div class="glass rounded-2xl p-6 reveal delay-300">
           <h3 class="font-heading font-semibold text-lg mb-4 text-pink-400">State & Data</h3>
           <div class="flex flex-wrap gap-3">
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-violet-400">🧠</span> Context API
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-yellow-400">💾</span> LocalStorage
             </span>
-            <span class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+            <span
+              class="glass rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
               <span class="text-orange-400">🔥</span> Firebase (optional)
             </span>
           </div>
@@ -642,20 +1008,34 @@
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
       <div class="reveal">
         <span class="text-emerald-400 text-sm font-medium tracking-wider uppercase">Get Started Today</span>
-        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-5">Ready to build <span class="gradient-text">better habits?</span></h2>
-        <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">Available on Web, iOS, and Android. Start for free and transform your daily routine into a powerful growth engine.</p>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-5">Ready to build <span
+            class="gradient-text">better habits?</span></h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">Available on Web, iOS, and Android. Start for free and
+          transform your daily routine into a powerful growth engine.</p>
       </div>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 reveal delay-200">
-        <a href="#" class="whitespace-nowrap px-8 py-4 rounded-full bg-gradient-to-r from-violet-500 to-emerald-500 text-white font-semibold text-lg hover:opacity-90 transition-opacity animate-pulse-glow flex items-center gap-3">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17h18M8 21h8"/></svg>
+        <a href="#"
+          class="whitespace-nowrap px-8 py-4 rounded-full bg-gradient-to-r from-violet-500 to-emerald-500 text-white font-semibold text-lg hover:opacity-90 transition-opacity animate-pulse-glow flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="14" rx="2" />
+            <path d="M3 17h18M8 21h8" />
+          </svg>
           Launch Web App
         </a>
-        <a href="#" class="whitespace-nowrap px-8 py-4 rounded-full glass text-white font-semibold text-lg hover:bg-white/10 transition-colors flex items-center gap-3">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <a href="#"
+          class="whitespace-nowrap px-8 py-4 rounded-full glass text-white font-semibold text-lg hover:bg-white/10 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+          </svg>
           Download for iOS
         </a>
-        <a href="#" class="whitespace-nowrap px-8 py-4 rounded-full glass text-white font-semibold text-lg hover:bg-white/10 transition-colors flex items-center gap-3">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 2.237l1.386-1.386a.5.5 0 0 0-.707-.707l-1.565 1.565A8.967 8.967 0 0 0 12 .5a8.967 8.967 0 0 0-4.637 1.209L5.798.144a.5.5 0 0 0-.707.707l1.386 1.386A8.97 8.97 0 0 0 3 8.5v1h18v-1a8.97 8.97 0 0 0-3.477-6.263zM8.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM3 10.5v8A3.5 3.5 0 0 0 6.5 22h11a3.5 3.5 0 0 0 3.5-3.5v-8H3z"/></svg>
+        <a href="#"
+          class="whitespace-nowrap px-8 py-4 rounded-full glass text-white font-semibold text-lg hover:bg-white/10 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M17.523 2.237l1.386-1.386a.5.5 0 0 0-.707-.707l-1.565 1.565A8.967 8.967 0 0 0 12 .5a8.967 8.967 0 0 0-4.637 1.209L5.798.144a.5.5 0 0 0-.707.707l1.386 1.386A8.97 8.97 0 0 0 3 8.5v1h18v-1a8.97 8.97 0 0 0-3.477-6.263zM8.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm7 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM3 10.5v8A3.5 3.5 0 0 0 6.5 22h11a3.5 3.5 0 0 0 3.5-3.5v-8H3z" />
+          </svg>
           Get for Android
         </a>
       </div>
@@ -669,57 +1049,81 @@
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <span class="text-violet-400 text-sm font-medium tracking-wider uppercase">FAQ</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-3 mb-4">Frequently Asked <span
+            class="gradient-text">Questions</span></h2>
       </div>
       <div class="space-y-4">
         <!-- FAQ 1 -->
         <div class="glass rounded-2xl overflow-hidden reveal" data-faq>
           <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
             <span class="font-heading font-medium pr-4">Is the app free to use?</span>
-            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
           <div class="faq-answer px-5">
-            <p class="text-sm text-slate-400 pb-5">Yes! DailyRise is completely free and open source. All core features — habit tracking, streaks, calendar, and analytics — are available at no cost.</p>
+            <p class="text-sm text-slate-400 pb-5">Yes! DailyRise is completely free and open source. All core features
+              — habit tracking, streaks, calendar, and analytics — are available at no cost.</p>
           </div>
         </div>
         <!-- FAQ 2 -->
         <div class="glass rounded-2xl overflow-hidden reveal delay-100" data-faq>
           <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
             <span class="font-heading font-medium pr-4">How does the streak system work?</span>
-            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
           <div class="faq-answer px-5">
-            <p class="text-sm text-slate-400 pb-5">For daily habits, your streak increases each day you complete the habit. Miss a day, and it resets. For weekly habits, completing once per week maintains your streak. Your longest streak is always saved so you can try to beat your record!</p>
+            <p class="text-sm text-slate-400 pb-5">For daily habits, your streak increases each day you complete the
+              habit. Miss a day, and it resets. For weekly habits, completing once per week maintains your streak. Your
+              longest streak is always saved so you can try to beat your record!</p>
           </div>
         </div>
         <!-- FAQ 3 -->
         <div class="glass rounded-2xl overflow-hidden reveal delay-200" data-faq>
           <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
             <span class="font-heading font-medium pr-4">Can I use it on mobile?</span>
-            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
           <div class="faq-answer px-5">
-            <p class="text-sm text-slate-400 pb-5">Absolutely! We have a dedicated React Native mobile app built with Expo for both iOS and Android. The web version is also fully responsive and works great on mobile browsers.</p>
+            <p class="text-sm text-slate-400 pb-5">Absolutely! We have a dedicated React Native mobile app built with
+              Expo for both iOS and Android. The web version is also fully responsive and works great on mobile
+              browsers.</p>
           </div>
         </div>
         <!-- FAQ 4 -->
         <div class="glass rounded-2xl overflow-hidden reveal delay-300" data-faq>
           <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
             <span class="font-heading font-medium pr-4">Is my data stored securely?</span>
-            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
           <div class="faq-answer px-5">
-            <p class="text-sm text-slate-400 pb-5">In Phase 1, all data is stored locally in your browser's LocalStorage — nothing leaves your device. Future phases will offer optional cloud sync via Firebase or Supabase with full encryption.</p>
+            <p class="text-sm text-slate-400 pb-5">In Phase 1, all data is stored locally in your browser's LocalStorage
+              — nothing leaves your device. Future phases will offer optional cloud sync via Firebase or Supabase with
+              full encryption.</p>
           </div>
         </div>
         <!-- FAQ 5 -->
         <div class="glass rounded-2xl overflow-hidden reveal delay-400" data-faq>
           <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleFaq(this)">
             <span class="font-heading font-medium pr-4">Can I export my habit data?</span>
-            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 faq-icon" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </button>
           <div class="faq-answer px-5">
-            <p class="text-sm text-slate-400 pb-5">Yes! You can export your complete habit data as a JSON file from the Settings page, making it easy to back up or migrate your data.</p>
+            <p class="text-sm text-slate-400 pb-5">Yes! You can export your complete habit data as a JSON file from the
+              Settings page, making it easy to back up or migrate your data.</p>
           </div>
         </div>
       </div>
@@ -735,7 +1139,11 @@
           <div class="w-8 h-8">
             <img src="logo.svg" alt="DailyRise Logo" class="w-full h-full opacity-80" />
           </div>
-          <span class="font-heading font-bold text-lg text-white">Daily<span class="text-violet-400 opacity-80">Rise</span></span>
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-lg leading-none text-white">Daily<span
+                class="text-violet-400 opacity-80">Rise</span></span>
+            <p class="text-[10px] sm:text-[12px] text-slate-500 mt-0.5">Build streaks, not stress.</p>
+          </div>
         </div>
         <!-- Links -->
         <nav class="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
@@ -749,11 +1157,21 @@
         </nav>
         <!-- Social / Info -->
         <div class="flex items-center gap-4">
-          <a href="https://github.com/Pankajsyal1" target="_blank" class="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all" aria-label="GitHub">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/Pankajsyal1" target="_blank"
+            class="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+            aria-label="GitHub">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
           </a>
-          <a href="https://x.com/pankajk76520654" target="_blank" class="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all" aria-label="Twitter">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://x.com/pankajk76520654" target="_blank"
+            class="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+            aria-label="Twitter">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
         </div>
       </div>
@@ -768,4 +1186,5 @@
   <!-- ========== SCRIPTS ========== -->
   <script src="main.js"></script>
 </body>
+
 </html>

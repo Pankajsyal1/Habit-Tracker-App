@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#8B5CF6" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,19 +13,142 @@
     content="Track your habits with DailyRise. A modern, beautiful, and performant habit tracker designed to help you build consistency and reach your goals." />
   <meta name="keywords"
     content="habit tracker, streak builder, consistency, productivity, goal tracking, modern ui, glassmorphism" />
-  <meta name="author" content="Habit Flow Team" />
+  <!-- Splash Screen Styles -->
+  <style>
+    :root {
+      --bg: #0A0A0F;
+      --accent: #8B5CF6;
+      --text: #F1F5F9;
+      --text-dim: #94A3B8;
+    }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Geist+Mono:wght@100..900&display=swap"
-    rel="stylesheet">
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Averia Serif Libre', sans-serif;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      transition: opacity 0.5s ease-out;
+      animation: fadeIn 0.8s ease-out forwards;
+      padding: 2rem;
+    }
+
+    #splash-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .splash-logo {
+      width: 80px;
+      height: 80px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .splash-text {
+      text-align: center;
+    }
+
+    .splash-title {
+      font-family: 'Geist Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .splash-title span {
+      color: var(--accent);
+    }
+
+    .splash-tagline {
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+    }
+
+    /* Mobile specific adjustments */
+    @media (max-width: 640px) {
+      .splash-logo {
+        width: 64px;
+        height: 64px;
+      }
+      .splash-title {
+        font-size: 1.75rem;
+      }
+      .splash-tagline {
+        font-size: 0.875rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0)); }
+      50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4)); }
+    }
+
+    /* Hide root until React takes over to avoid flash of unstyled content */
+    #root {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+
+    #root.ready {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="splash-screen">
+    <img src="/logo.svg" alt="DailyRise Logo" class="splash-logo" />
+    <div class="splash-text">
+      <h1 class="splash-title">Daily<span>Rise</span></h1>
+      <p class="splash-tagline">Build streaks, not stress.</p>
+    </div>
+  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script>
+    // Remove splash screen once React has started rendering
+    const observer = new MutationObserver((mutations) => {
+      const root = document.getElementById('root');
+      if (root && root.children.length > 0) {
+        const splash = document.getElementById('splash-screen');
+        if (splash) {
+          // Signal that the app is ready for the fade-in transition
+          root.classList.add('ready');
+          
+          splash.classList.add('fade-out');
+          setTimeout(() => {
+            splash.remove();
+            // Restore overflow for the app
+            document.body.style.overflow = 'auto';
+            document.body.style.padding = '0'; // Ensure no padding shift
+          }, 500);
+        }
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.getElementById('root'), { childList: true });
+  </script>
 </body>
 
 </html>
