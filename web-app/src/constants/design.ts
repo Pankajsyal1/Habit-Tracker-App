@@ -33,7 +33,7 @@ export const STORAGE_KEYS = {
 };
 
 export const APP_METADATA = {
-  TITLE: 'Habit Flow',
+  TITLE: 'DailyRise',
   TAGLINE: 'Build streaks, not stress.',
   DESCRIPTION: 'Track your habits with a modern, beautiful, and performant app.',
 };

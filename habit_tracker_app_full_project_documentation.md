@@ -1,8 +1,8 @@
-# Habit Tracker App – Full Project Documentation
+# DailyRise App – Full Project Documentation
 
 ## 1. Project Overview
 
-**Habit Tracker** is a modern web application that helps users build and maintain positive habits by tracking daily and weekly activities. The app focuses on motivation through **streaks**, **visual progress**, and **clear feedback**.
+**DailyRise** is a modern web and mobile application that helps users build and maintain positive habits by tracking daily and weekly activities. The app focuses on motivation through **streaks**, **visual progress**, and **clear feedback**.
 
 This project is designed to be:
 - Portfolio-ready
@@ -53,14 +53,23 @@ This project is designed to be:
 
 ## 3. Tech Stack
 
-### Frontend
-- **React 18**
-- **Vite** (fast build tool)
-- **TypeScript** (recommended)
-- **React Router** (page navigation)
-- **Context API** (global state)
+### Frontend (Web)
+- **React 19**
+- **Vite 7**
+- **TypeScript 5.9**
+- **React Router 7**
+- **Tailwind CSS 4**
+- **Lucide React** & **React Icons**
+- **GSAP** & **@gsap/react** (animations)
+- **Recharts** (analytics visualization)
 - **date-fns** (date utilities)
-- **CSS Modules / Tailwind CSS** (styling)
+
+### Frontend (Mobile)
+- **React Native 0.81** (via Expo 54)
+- **NativeWind 4** (Tailwind for mobile)
+- **React Navigation 7**
+- **Async Storage** (local data)
+- **Lucide React Native**
 
 ### State Management
 - Context API + Reducer
@@ -207,7 +216,7 @@ services:
 ### Phase 1 – MVP
 - Habit CRUD
 - Daily tracking
-- LocalStorage
+- LocalStorage / Async Storage
 
 ### Phase 2 – Visual Progress
 - Calendar view
@@ -241,17 +250,16 @@ services:
 
 ## 12. Resume Description (Ready-to-use)
 
-> Built a Habit Tracker web application using React and TypeScript, featuring daily and weekly habit tracking, streak calculation, and calendar-based progress visualization. Implemented Dockerized development environment and scalable state management.
+> Built DailyRise, a cross-platform habit tracking suite (Web & Mobile) using React 19, Expo 54, and TypeScript. Features robust streak logic, calendar visualizations with Recharts, and a high-performance Obsidian glass design with GSAP animations. Implemented Dockerized infrastructure for seamless deployment.
 
 ---
 
 ## 13. Future Enhancements
 
-- User authentication
-- Cloud sync
-- Push notifications
-- Mobile app (React Native)
-- Gamification (badges, levels)
+- User authentication (Firebase/Supabase)
+- Cloud sync & real-time updates
+- Enhanced push notifications
+- Gamification (badges, levels, social leaderboards)
 
 ---
 

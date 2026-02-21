@@ -1,0 +1,17 @@
+{
+  "name": "DailyRise – Build Better Habits",
+  "short_name": "DailyRise",
+  "description": "Build streaks, not stress. The modern habit tracker.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#8B5CF6",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
