@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, useColorScheme } from 'react-native';
 import HabitCard from './HabitCard';
 import type { Habit } from '../types';
+import { HabitFrequency } from '../constants/enums';
 
 interface HabitSectionProps {
   title: string;
@@ -36,7 +37,7 @@ const HabitSection = ({
 
   return (
     <View className="space-y-6 mb-8">
-      <View className="flex-row items-center justify-between">
+      <View className="flex-row items-center justify-between mb-1">
         <View className="flex-row items-center gap-3">
           <View className={`h-1 w-6 rounded-full ${accentColor === 'emerald' ? 'bg-emerald-500' : 'bg-sky-500'}`} />
           <Text className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">
@@ -56,7 +57,7 @@ const HabitSection = ({
             <Text className="text-sm font-medium text-slate-500 text-center">
               {emptyMessage}
             </Text>
-            {title.toLowerCase().includes('daily') && (
+            {title.toLowerCase().includes(HabitFrequency.DAILY) && (
               <TouchableOpacity className="mt-3">
                 <Text className="text-xs font-bold text-emerald-500">Create your first goal</Text>
               </TouchableOpacity>

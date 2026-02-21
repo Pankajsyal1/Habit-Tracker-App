@@ -11,7 +11,7 @@ import ConfirmModal from '../components/ConfirmModal';
 import EditHabitModal from '../components/EditHabitModal';
 import type { Habit } from '../types';
 
-export default function HabitsScreen() {
+export default function HabitsScreen({ navigation }: any) {
   const { habits, toggleComplete, deleteHabit, updateHabit, isLoading } = useHabits();
   const [filter, setFilter] = useState<'all' | HabitFrequency>('all');
   const colorScheme = useColorScheme();

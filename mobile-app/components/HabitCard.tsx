@@ -36,7 +36,7 @@ const HabitCard = ({ habit, onToggleToday, onEdit, onDelete }: HabitCardProps) =
                   ? (isDark ? 'bg-emerald-500/10 border-emerald-500/30' : 'bg-emerald-50 border-emerald-200') 
                   : (isDark ? 'bg-sky-500/10 border-sky-500/30' : 'bg-sky-50 border-sky-200')}
               `}>
-                <Text className={`font-black ${habit.frequency === HabitFrequency.DAILY ? 'text-emerald-500' : 'text-sky-500'}`}>
+                <Text className={`font-bold ${habit.frequency === HabitFrequency.DAILY ? 'text-emerald-500' : 'text-sky-500'}`}>
                   {habit.frequency === HabitFrequency.DAILY ? 'D' : 'W'}
                 </Text>
               </View>

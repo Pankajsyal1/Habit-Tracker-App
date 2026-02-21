@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Animated, View, Text, TextInput, TouchableOpacity, useColorScheme } from 'react-native';
+import { Animated, View, Text, TextInput, TouchableOpacity, useColorScheme, StyleSheet } from 'react-native';
 import { Check, Plus } from 'lucide-react-native';
 import { HabitFrequency } from '../constants/enums';
 
@@ -88,12 +88,17 @@ const QuickAddHabit = ({ onAdd }: QuickAddHabitProps) => {
               <TouchableOpacity
                 key={f}
                 onPress={() => setFrequency(f)}
-                className={`flex-1 rounded-xl items-center justify-center ${frequency === f
-                  ? 'bg-emerald-500 shadow-sm shadow-emerald-500/20'
-                  : ''
-                  }`}
+                style={[
+                  styles.frequencyButton,
+                  frequency === f && styles.frequencyButtonActive,
+                ]}
               >
-                <Text className={`text-[10px] font-black uppercase tracking-widest ${frequency === f ? 'text-white' : 'text-slate-500'}`}>
+                <Text
+                  style={[
+                    styles.frequencyText,
+                    frequency === f ? styles.frequencyTextActive : styles.frequencyTextInactive,
+                  ]}
+                >
                   {f}
                 </Text>
               </TouchableOpacity>
@@ -104,7 +109,12 @@ const QuickAddHabit = ({ onAdd }: QuickAddHabitProps) => {
         <TouchableOpacity
           onPress={handleSubmit}
           disabled={isDisabled}
-          className={`h-14 w-14 items-center justify-center rounded-2xl active:scale-95 shadow-md ${isDisabled ? (isDark ? 'bg-slate-800' : 'bg-slate-200') : 'bg-emerald-500 shadow-emerald-500/20'}`}
+          style={[
+            styles.submitButton,
+            isDisabled
+              ? (isDark ? styles.submitButtonDisabledDark : styles.submitButtonDisabledLight)
+              : styles.submitButtonActive,
+          ]}
         >
           <Plus size={28} color={isDisabled ? (isDark ? '#475569' : '#94a3b8') : "#fff"} strokeWidth={3} />
         </TouchableOpacity>
@@ -112,5 +122,55 @@ const QuickAddHabit = ({ onAdd }: QuickAddHabitProps) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  frequencyButton: {
+    flex: 1,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  frequencyButtonActive: {
+    backgroundColor: '#10b981',
+    shadowColor: '#10b981',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  frequencyText: {
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 2,
+  },
+  frequencyTextActive: {
+    color: '#ffffff',
+  },
+  frequencyTextInactive: {
+    color: '#64748b',
+  },
+  submitButton: {
+    height: 56,
+    width: 56,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 16,
+  },
+  submitButtonActive: {
+    backgroundColor: '#10b981',
+    shadowColor: '#10b981',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  submitButtonDisabledDark: {
+    backgroundColor: '#1e293b',
+  },
+  submitButtonDisabledLight: {
+    backgroundColor: '#e2e8f0',
+  },
+});
 
 export default QuickAddHabit;

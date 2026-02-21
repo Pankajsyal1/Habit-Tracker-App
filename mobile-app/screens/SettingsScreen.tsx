@@ -1,17 +1,15 @@
 import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity, useColorScheme, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation, useNavigationState } from '@react-navigation/native';
 import { Database, AlertTriangle, LineChart, Download, Trash2, Github, Settings as SettingsIcon } from 'lucide-react-native';
 import * as Sharing from 'expo-sharing';
 import * as FileSystem from 'expo-file-system';
 import ScreenHeader from '../components/ScreenHeader';
 import { dbService } from '../db/db';
 
-export default function SettingsScreen() {
+export default function SettingsScreen({ navigation }: any) {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
-  const navigation = useNavigation<any>();
 
   const handleExport = async () => {
     try {

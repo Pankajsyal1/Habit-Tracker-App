@@ -1,14 +1,18 @@
 import type { Habit } from '../types';
 import { daysBetweenIso, todayIso } from './dateUtils';
+import { HabitFrequency } from '../constants/enums';
 
 export function calculateStreaksForHabit(habit: Habit): Habit {
+  if (!habit) return habit;
+  
   const today = todayIso();
-  const dates = [...habit.completedDates].sort();
+  const dates = [...(habit.completedDates || [])].sort();
+  
   if (dates.length === 0) {
     return { ...habit, currentStreak: 0, longestStreak: 0 };
   }
 
-  if (habit.frequency === 'daily') {
+  if (habit.frequency === HabitFrequency.DAILY) {
     let currentStreak = 0;
     let longestStreak = 0;
     let streak = 0;
@@ -94,17 +98,32 @@ export function calculateStreaksForHabit(habit: Habit): Habit {
 }
 
 function getWeekKey(isoDate: string): string {
-  const date = new Date(isoDate);
-  const firstDayOfYear = new Date(date.getUTCFullYear(), 0, 1);
-  const pastDaysOfYear = Math.floor(
-    (Number(date) - Number(firstDayOfYear)) / 86400000,
-  );
-  const week = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
-  return `${date.getUTCFullYear()}-W${week}`;
+  try {
+    const date = new Date(isoDate);
+    const firstDayOfYear = new Date(date.getUTCFullYear(), 0, 1);
+    const pastDaysOfYear = Math.floor(
+      (Number(date) - Number(firstDayOfYear)) / 86400000,
+    );
+    const week = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+    // Pad week number with leading zero for correct lexicographical sorting
+    const paddedWeek = week.toString().padStart(2, '0');
+    return `${date.getUTCFullYear()}-W${paddedWeek}`;
+  } catch (e) {
+    console.error('Error generating week key:', e);
+    return '0000-W00';
+  }
 }
 
 function weekDistance(a: string, b: string): number {
   const [yearA, weekA] = a.split('-W').map(Number);
   const [yearB, weekB] = b.split('-W').map(Number);
-  return (yearB - yearA) * 52 + (weekB - weekA);
+  
+  if (isNaN(yearA) || isNaN(weekA) || isNaN(yearB) || isNaN(weekB)) return 0;
+  
+  // Approximation: years have 52.17 weeks on average
+  // Better: calculate total weeks since a fixed point
+  const totalWeeksA = yearA * 52 + weekA;
+  const totalWeeksB = yearB * 52 + weekB;
+  
+  return totalWeeksB - totalWeeksA;
 }

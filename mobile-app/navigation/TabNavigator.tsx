@@ -1,22 +1,60 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useColorScheme } from 'react-native';
-import { LayoutDashboard, ListTodo, Calendar, BarChart2, Settings } from 'lucide-react-native';
+import { createBottomTabNavigator, BottomTabBarButtonProps } from '@react-navigation/bottom-tabs';
+import { useColorScheme, View, TouchableOpacity, Platform, StyleSheet as RNStyleSheet } from 'react-native';
+import { LayoutDashboard, ListTodo, Plus, BarChart2, Settings } from 'lucide-react-native';
 
 import DashboardScreen from '../screens/HomeScreen';
 import HabitsScreen from '../screens/HabitsScreen';
-import CalendarScreen from '../screens/CalendarScreen';
+import CreateHabitScreen from '../screens/CreateHabitScreen';
 import AnalyticsScreen from '../screens/AnalyticsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
+const CustomAddButton = ({ children, onPress }: BottomTabBarButtonProps) => (
+  <TouchableOpacity
+    onPress={onPress}
+    style={{
+      top: -20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      ...Platform.select({
+        ios: {
+          shadowColor: '#10b981',
+          shadowOffset: { width: 0, height: 10 },
+          shadowOpacity: 0.3,
+          shadowRadius: 10,
+        },
+        android: {
+          elevation: 10,
+        }
+      })
+    }}
+  >
+    <View
+      style={{
+        width: 64,
+        height: 64,
+        borderRadius: 32,
+        backgroundColor: '#10b981',
+        borderWidth: 4,
+        borderColor: '#020617', // Match dark bg or use a dynamic color
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      {children}
+    </View>
+  </TouchableOpacity>
+);
+
 export default function TabNavigator() {
   const colorScheme = useColorScheme();
+  const isDark = colorScheme === 'dark';
   const activeColor = '#10b981'; // emerald-500
-  const inactiveColor = colorScheme === 'dark' ? '#94a3b8' : '#64748b';
-  const backgroundColor = colorScheme === 'dark' ? '#0f172a' : '#ffffff';
-  const borderColor = colorScheme === 'dark' ? '#1e293b' : '#e2e8f0';
+  const inactiveColor = isDark ? '#94a3b8' : '#64748b';
+  const backgroundColor = isDark ? '#020617' : '#ffffff';
+  const borderColor = isDark ? '#1e293b' : '#e2e8f0';
 
   return (
     <Tab.Navigator
@@ -24,13 +62,30 @@ export default function TabNavigator() {
         headerShown: false,
         tabBarActiveTintColor: activeColor,
         tabBarInactiveTintColor: inactiveColor,
+        tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor,
           borderTopColor: borderColor,
           borderTopWidth: 1,
-          height: 60,
-          paddingBottom: 8,
-          paddingTop: 8,
+          height: 70,
+          paddingBottom: Platform.OS === 'ios' ? 20 : 10,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          ...Platform.select({
+            ios: {
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: -10 },
+              shadowOpacity: 0.1,
+              shadowRadius: 10,
+            },
+            android: {
+              elevation: 20,
+            }
+          })
         },
       }}
     >
@@ -38,40 +93,37 @@ export default function TabNavigator() {
         name="Dashboard"
         component={DashboardScreen}
         options={{
-          title: 'Dashboard',
-          tabBarIcon: ({ color, size }) => <LayoutDashboard size={size} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <LayoutDashboard size={24} color={color} />,
         }}
       />
       <Tab.Screen
         name="Habits"
         component={HabitsScreen}
         options={{
-          title: 'Habits',
-          tabBarIcon: ({ color, size }) => <ListTodo size={size} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <ListTodo size={24} color={color} />,
         }}
       />
       <Tab.Screen
-        name="Calendar"
-        component={CalendarScreen}
+        name="CreateHabit"
+        component={CreateHabitScreen}
         options={{
-          title: 'Calendar',
-          tabBarIcon: ({ color, size }) => <Calendar size={size} color={color} />,
+          tabBarIcon: () => <Plus size={32} color="#fff" strokeWidth={3} />,
+          tabBarButton: (props: BottomTabBarButtonProps) => <CustomAddButton {...props} />,
+          tabBarStyle: { display: 'none' },
         }}
       />
       <Tab.Screen
         name="Analytics"
         component={AnalyticsScreen}
         options={{
-          title: 'Analytics',
-          tabBarIcon: ({ color, size }) => <BarChart2 size={size} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <BarChart2 size={24} color={color} />,
         }}
       />
       <Tab.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ color, size }) => <Settings size={size} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Settings size={24} color={color} />,
         }}
       />
     </Tab.Navigator>

@@ -7,7 +7,7 @@ import Svg, { Path, Circle, G, Line } from 'react-native-svg';
 import ScreenHeader from '../components/ScreenHeader';
 import { useHabits } from '../hooks/useHabits';
 
-export default function AnalyticsScreen() {
+export default function AnalyticsScreen({ navigation }: any) {
   const { habits, stats: hookStats, isLoading } = useHabits();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';

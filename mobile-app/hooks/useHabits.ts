@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useHabitContext } from '../context/HabitContext';
-import type { Habit, HabitFrequency } from '../types';
+import type { Habit } from '../types';
+import { HabitFrequency } from '../constants/enums';
 import { isSameDayIso, todayIso } from '../utils/dateUtils';
 
 export const useHabits = () => {
@@ -9,7 +10,7 @@ export const useHabits = () => {
   const today = todayIso();
 
   const habitsForToday = useMemo(
-    () => habits.filter((h) => h.frequency === 'daily'),
+    () => habits.filter((h) => h.frequency === HabitFrequency.DAILY),
     [habits],
   );
 
