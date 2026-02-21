@@ -49,7 +49,7 @@ const AppHeader = () => {
       style={{ boxShadow: isScrolled ? '0 10px 30px -10px rgba(0,0,0,0.5)' : 'none' }}
     >
       <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-linear-to-br from-emerald-400 to-sky-500 glow-primary shadow-emerald-500/20">
+        <div className="flex h-12 w-12 items-center justify-center overflow-hidden">
           <img src="/logo.svg" alt="DailyRise Logo" className="w-full h-full object-cover" />
         </div>
         <div>
