@@ -3,7 +3,7 @@ import { ScrollView, View, Text, TouchableOpacity, useColorScheme, Alert } from 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Database, AlertTriangle, LineChart, Download, Trash2, Github, Settings as SettingsIcon } from 'lucide-react-native';
 import * as Sharing from 'expo-sharing';
-import * as FileSystem from 'expo-file-system';
+import { File, Paths } from 'expo-file-system/next';
 import ScreenHeader from '../components/ScreenHeader';
 import { dbService } from '../db/db';
 
@@ -21,12 +21,13 @@ export default function SettingsScreen({ navigation }: any) {
       
       const data = JSON.stringify({ habits }, null, 2);
       const filename = `habit-tracker-backup-${new Date().toISOString().split('T')[0]}.json`;
-      const fileUri = (FileSystem as any).documentDirectory + filename;
+      const file = new File(Paths.cache, filename);
       
-      await (FileSystem as any).writeAsStringAsync(fileUri, data);
+      file.create();
+      file.write(data);
       
       if (await Sharing.isAvailableAsync()) {
-        await Sharing.shareAsync(fileUri);
+        await Sharing.shareAsync(file.uri);
       } else {
         Alert.alert('Sharing Unavailable', 'File saved to cache but sharing is not supported on this device.');
       }
